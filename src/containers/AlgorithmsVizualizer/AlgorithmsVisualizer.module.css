@@ -1,0 +1,29 @@
+.Container{
+    position: relative;
+    text-align: center;
+    top: 50px;
+    width: 80%;
+    margin: 80px auto;
+    padding: 30px;
+    background-color: #1abc9c;
+}
+
+.Visualizer{
+    background-color: #ffffff;
+    padding: 80px 20px 10px 20px; 
+    border-radius: 15px;
+    margin: 50px 0;
+}
+
+.ArrayBar{
+    display: inline-block;
+    width: 10px;
+    background-color: rgb(163, 255, 58);
+    margin: 0 2px;
+
+} 
+
+.Buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
