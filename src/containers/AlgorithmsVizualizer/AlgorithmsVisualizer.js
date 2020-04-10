@@ -138,5 +138,3 @@ class Algorithms extends PureComponent{
 
 export default Algorithms;
 
-
-commit
