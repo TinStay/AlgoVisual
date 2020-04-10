@@ -1,29 +1,100 @@
 .Container{
     position: relative;
-    text-align: center;
+    
     top: 50px;
-    width: 80%;
+    width: 100%;
     margin: 80px auto;
     padding: 30px;
-    background-color: #1abc9c;
+    border-radius: 10px;
+    background-color: #b8e994;
 }
 
 .Visualizer{
+    width: 90%;
+    /* height: 500px; */
     background-color: #ffffff;
     padding: 80px 20px 10px 20px; 
     border-radius: 15px;
-    margin: 50px 0;
+    text-align: center;
+    margin: 50px auto 10px auto;
 }
 
 .ArrayBar{
     display: inline-block;
-    width: 10px;
-    background-color: rgb(163, 255, 58);
-    margin: 0 2px;
-
+    width: 3px;
+    background-color: #6a89cc;
+    margin-left: 1px;
 } 
+
+@media(min-width: 620px){
+    .ArrayBar{
+        width: 5px;
+        margin-left: 1px;
+    } 
+}
+
+@media(min-width: 833px){
+    .ArrayBar{
+        width: 4px;
+        margin-left: 2px;
+    } 
+}
+@media(min-width: 1199px){
+    .ArrayBar{
+        width: 7px;
+        margin-left: 4px;
+    } 
+}
+@media(min-width: 1505px){
+    .ArrayBar{
+        width: 10px;
+        margin-left: 4px;
+    } 
+}
 
 .Buttons{
     display: flex;
     justify-content: space-evenly;
+    
+    
 }
+
+.NewArray{
+    font-size: 1.6rem;
+    padding: 10px;
+    margin: 20px 15px;
+    background-color: #f6b93b;
+    color: #1e272e;
+    border-radius: 15%;
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease-out;
+}
+.NewArray:hover{
+    background-color: #f1b338;
+  
+    border-bottom: 2px solid #ff5e57;
+    border-radius: 15%;
+}
+
+.Button{
+    font-size: 1.6rem;
+    padding: 5px;
+    margin: 20px 15px;
+    background-color: #45aaf2be;
+    border-radius: 12px;
+    color: #1e272e;
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease-out;
+}
+.Button:hover{
+    background-color: #50da6e;
+    border-radius: 7px;
+    border: none;
+    border-bottom:2px solid #F79F1F ;
+
+}
+
+
+commit

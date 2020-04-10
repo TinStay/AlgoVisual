@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
+import Slider from '../../components/UI/Slider/Slider';
 
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import Select from '@material-ui/core/Select';
+// import InputLabel from '@material-ui/core/InputLabel';
 
-import classes from './AlgorithmsVisualizer.module.css'
+// import classes from './AlgorithmsVisualizer.module.css'
 import * as algorithms from '../../components/Algorithms/AlgorithmFunctions';
 
 function getRandomArbitrary(min, max) {
@@ -13,11 +14,11 @@ function getRandomArbitrary(min, max) {
 
 const ANIMATION_SPEED_MS = 10;
 
-const NUMBER_OF_ARRAY_BARS = 100;
+const NUMBER_OF_ARRAY_BARS = 70;
 
-const PRIMARY_COLOR = 'rgb(163, 255, 58)';
+const PRIMARY_COLOR = '#6a89cc';
 
-const SECONDARY_COLOR = 'red';
+const SECONDARY_COLOR = '#eb2f06';
 
 
 class Algorithms extends PureComponent{
@@ -36,7 +37,7 @@ class Algorithms extends PureComponent{
         let array = [];
          
         for(let i =0; i < NUMBER_OF_ARRAY_BARS; i++){
-            array.push(getRandomArbitrary(5, 100));
+            array.push(getRandomArbitrary(5, 300));
         }
 
         const visualizerWidth = document.getElementById("visualizer").offsetWidth
@@ -51,7 +52,7 @@ class Algorithms extends PureComponent{
     mergeSort() {
         const animations = algorithms.getMergeSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++) {
-          const arrayBars = document.getElementsByClassName(classes.ArrayBar);
+          const arrayBars = document.getElementsByClassName('array-bar');
           const isColorChange = i % 3 !== 2;
 
           if (isColorChange) {
@@ -76,6 +77,10 @@ class Algorithms extends PureComponent{
         }
       }
 
+      changeValue = (e) =>{
+          return console.log(e.target.value)
+      }
+
 
     render(){
        
@@ -83,21 +88,31 @@ class Algorithms extends PureComponent{
 
         const arrayVisualization = this.state.array.map((num, idx) =>{
             return <div key={idx} 
-            className={classes.ArrayBar} 
+            className='array-bar' 
             style={{height: `${num}px`}}>
 
             </div>
         })
 
         return (
-            <div className={classes.Container}>
-             <h1>Still in progress!</h1>
-                <div className={classes.Visualizer} id='visualizer'>
+            <div className='visualizer-container text-center'>
+             <h1 className='yellow mt-4'>Visualizer</h1>
+             <h4 className="white mt-4">Visualize how different sorting algorithms work under the hood. </h4>
+                <div className='visualizer' id='visualizer'>
                     {arrayVisualization}
                 </div>
-                <div className={classes.Buttons}>
-                    <button className="btn btn-primary" onClick={() => this.newArray()}>New array</button>
-                    <button className="btn btn-secondary" onClick={() => this.mergeSort()}>Merge sort</button>
+                <div className='buttons row'>
+                    <div className="col-lg-6 ">
+                        <Slider change={this.changeValue}/>
+                        <button className='new-array float-left' onClick={() => this.newArray()}>Generate new array</button>
+                        
+                    </div>
+                    <div className="col-lg-6">
+                        <button className='button' onClick={() => this.mergeSort()}>Merge sort</button>
+                        <button className='button' onClick={() => this.mergeSort()}>Selection Sort</button>
+                        <button className='button' onClick={() => this.mergeSort()}>Bubble sort</button>
+                        <button className='button' onClick={() => this.mergeSort()}>Quick sort</button>
+                    </div>
                     
                 </div>
                 {/* <div>
@@ -122,3 +137,6 @@ class Algorithms extends PureComponent{
 
 
 export default Algorithms;
+
+
+commit
