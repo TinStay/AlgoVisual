@@ -64,5 +64,3 @@ const Jumbotron = () =>{
 }
 
 export default Jumbotron;
-
-commit
