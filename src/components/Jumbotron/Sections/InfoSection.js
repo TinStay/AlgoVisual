@@ -22,5 +22,3 @@ const InfoSection = (props) =>{
 }
 
 export default InfoSection;
-
-commit
