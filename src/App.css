@@ -10,50 +10,85 @@
 .white {
   color: #f1f2f6; }
 
-body {
-  background-color: #ecf0f1; }
+.light-mode {
+  --bg-color: #ecf0f1;
+  --font-color: #34495e;
+  background-color: var(--bg-color);
+  color: var(--font-color); }
+
+.dark-mode {
+  --bg-color: #34495e;
+  --font-color: #f1f2f6;
+  background-color: var(--bg-color);
+  color: var(--font-color); }
+
+.navigationbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: #134E5E;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #71B280, #134E5E);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #71B280, #134E5E);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
+  .navigationbar .cirle {
+    width: 100px; }
+  .navigationbar .logo {
+    position: absolute;
+    left: 50%;
+    width: 100px;
+    margin-left: -50px !important;
+    background-color: #b8e994;
+    border-radius: 45%;
+    padding: 20px;
+    margin: 10px;
+    z-index: 10; }
 
 .jumbotron {
   margin: 70px auto 40px auto;
-  color: #34495e;
+  color: var(--font-color);
   text-align: center;
-  background-color: #ecf0f1; }
+  background-color: var(--bg-color); }
   .jumbotron .heading {
     font-size: 4em;
     margin: 30px 0; }
   .jumbotron .info {
     width: 80%;
-    margin: 20px auto; }
-
-.sections {
-  color: #34495e; }
-  .sections .heading2 {
-    width: 60%;
     margin: 20px auto;
-    text-align: center;
-    border-bottom: 3px solid #1abc9c; }
-  .sections .section {
-    text-align: center;
-    margin: 40px auto; }
-    .sections .section .h1 {
-      font-size: 3rem; }
-    .sections .section p {
-      font-size: 1.2rem;
-      letter-spacing: 1px; }
-    .sections .section .btn {
-      background-color: #2ecc703a;
-      font-size: 20px;
-      margin: 10px;
-      padding: 15px;
-      color: #34495e;
-      transition: all 0.3s ease-out; }
-      .sections .section .btn:hover {
-        background-color: #54a1ff41;
-        margin: 7px;
-        font-size: 23px; }
-    .sections .section .section-image {
-      width: 200px;
-      margin: 20px auto; }
+    line-height: 3rem; }
+
+.sections .heading2 {
+  width: 60%;
+  margin: 20px auto;
+  text-align: center;
+  border-bottom: 3px solid #1abc9c; }
+
+.sections .section {
+  text-align: center;
+  margin: 40px auto; }
+  .sections .section .h1 {
+    font-size: 3rem; }
+  .sections .section p {
+    font-size: 1.2rem;
+    font-family: "Roboto";
+    letter-spacing: 1px;
+    line-height: 1.7rem; }
+  .sections .section .btn {
+    background-color: #2ecc703a;
+    font-size: 20px;
+    margin: 10px;
+    padding: 15px;
+    color: var(--font-color);
+    transition: all 0.3s ease-out; }
+    .sections .section .btn:hover {
+      background-color: #54a1ff41;
+      margin: 7px;
+      font-size: 23px; }
+  .sections .section .section-image {
+    width: 200px;
+    margin: 20px auto; }
 
 .visualizer-container {
   position: relative;
@@ -102,7 +137,7 @@ body {
       border-radius: 3px; }
   .visualizer-container .button {
     font-size: 1.4rem;
-    padding: 10px;
+    padding: 7px;
     float: left;
     margin: 20px 15px;
     background-color: #30336bbc;
@@ -117,6 +152,10 @@ body {
       border-radius: 3px;
       border: none;
       border-bottom: 2px solid #F79F1F; }
+    .visualizer-container .button:disabled {
+      background-color: #e74c3c;
+      color: #ecf0f1;
+      cursor: no-drop; }
   .visualizer-container .button-group-animation {
     margin: 20px 15px;
     padding: 10px; }

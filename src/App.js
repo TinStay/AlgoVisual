@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './App.css';
 
 // Containers 
@@ -10,9 +10,13 @@ import Jumbotron from './components/Jumbotron/Jumbotron';
 
 
 function App() {
+
+  const [darkMode, setDarkMode] = useState(false)
+
   return (
-    <div className="App">
-      <Navigationbar/>
+    <div className={darkMode ? "dark-mode": "light-mode"}>
+      <Navigationbar 
+      toggleDarkMode={() => setDarkMode(prevMode => !prevMode)}/>
       <Jumbotron />
      <Algorithms></Algorithms>
     </div>

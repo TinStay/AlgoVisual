@@ -2,14 +2,16 @@ import React from 'react';
 import classes from './Navigationbar.module.css'
 import Logo from '../../assets/logo.png';
 
-const Navigationbar = () =>{
+
+const Navigationbar = (props) =>{
 
     
     return(
-        <div  className={classes.Navigationbar}>
-            <a href="/" className={classes.Circle}>
-                <img src={Logo} alt="logo" className={classes.Logo}/>
+        <div  className="navigationbar">
+            <a href="/" className='cirle'>
+                <img src={Logo} alt="logo" className="logo" />
             </a>
+            <button className='btn' onClick={props.toggleDarkMode}>Dark Mode</button>
         </div>
     )
 }

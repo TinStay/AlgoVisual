@@ -25,7 +25,8 @@ class Algorithms extends PureComponent{
         array: [],
         arrayBars: 50,
         visualizerWidth: 0,
-        animationSpeed: 10
+        animationSpeed: 10,
+    
     }
 
     componentDidMount(){
@@ -67,15 +68,22 @@ class Algorithms extends PureComponent{
         })
     }
 
-    mergeSort() {
+   
+
+    async mergeSort() {
+
         const animations = algorithms.getMergeSortAnimations(this.state.array);
-        for (let i = 0; i < animations.length; i++) {
+
+        let i = 0;
+        while(i < animations.length) {
+
+        const j = i;
           const arrayBars = document.getElementsByClassName('array-bar');
           const isColorChange = i % 3 !== 2;
 
           if (isColorChange) {
             // Changing colors of the starting and the smallest array elements animation
-            const [barOneIdx, barTwoIdx] = animations[i];
+            const [barOneIdx, barTwoIdx] = animations[j];
             const barOneStyle = arrayBars[barOneIdx].style;
             const barTwoStyle = arrayBars[barTwoIdx].style;
             const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
@@ -87,14 +95,21 @@ class Algorithms extends PureComponent{
           } else {
             setTimeout(() => {
             // Overwriting the array numbers --- sorting them
-              const [barOneIdx, newHeight] = animations[i];
+              const [barOneIdx, newHeight] = animations[j];
               const barOneStyle = arrayBars[barOneIdx].style;
               barOneStyle.height = `${newHeight}px`;
             }, i * this.state.animationSpeed);
           }
+
+          i++;
         }
+
+        // await setTimeout(() =>{
+        //     this.setState({disabled: false});
+        // }, i * this.state.animationSpeed);
       }
 
+    
       changeArrayNumber = (e) =>{
         this.setState({
             arrayBars: e.target.value
@@ -142,10 +157,10 @@ class Algorithms extends PureComponent{
                         <ButtonGroupAnimation changeTime={this.changeTimeHandler}/>
                     </div>
                     <div className="col-lg-6">
-                        <button className='button' onClick={() => this.mergeSort()}>Merge sort</button>
+                        <button className='button'  onClick={() => this.mergeSort()}>Merge sort</button>
                         <button className='button' onClick={() => this.mergeSort()}>Selection Sort</button>
                         <button className='button' onClick={() => this.mergeSort()}>Bubble sort</button>
-                        <button className='button' onClick={() => this.mergeSort()}>Quick sort</button>
+                        <button className='button'  onClick={() => this.mergeSort()}>Quick sort</button>
                     </div>
                     
                 </div>
