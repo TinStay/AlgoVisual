@@ -73,7 +73,6 @@ body {
   box-shadow: 1px 6px 13px 16px rgba(87, 96, 111, 0.33); }
   .visualizer-container .visualizer {
     width: 80%;
-    height: 80%;
     background-color: #ffffff;
     padding: 80px 20px 10px 20px;
     border-radius: 3px;
@@ -81,26 +80,9 @@ body {
     margin: 50px auto 10px auto; }
   .visualizer-container .array-bar {
     display: inline-block;
-    width: 3px;
     border-radius: 2px;
     background-color: #6a89cc;
-    margin-left: 1px; }
-    @media screen and (min-width: 620px) {
-      .visualizer-container .array-bar {
-        width: 5px;
-        margin-left: 1px; } }
-    @media screen and (min-width: 833px) {
-      .visualizer-container .array-bar {
-        width: 4px;
-        margin-left: 2px; } }
-    @media (min-width: 1199px) {
-      .visualizer-container .array-bar {
-        width: 7px;
-        margin-left: 4px; } }
-    @media screen and (min-width: 1505px) {
-      .visualizer-container .array-bar {
-        width: 10px;
-        margin-left: 4px; } }
+    margin: 0 2px; }
   .visualizer-container .buttons {
     width: 80%;
     margin: 50px auto; }
@@ -113,25 +95,28 @@ body {
     border-radius: 5px;
     border: none;
     border-bottom: 2px solid transparent;
-    transition: all 0.2s ease-out; }
+    transition: all 0.4s ease-out; }
     .visualizer-container .new-array:hover {
-      background-color: #f1b338;
+      background-color: #e6ab37;
       border-bottom: 2px solid #ff5e57;
       border-radius: 3px; }
   .visualizer-container .button {
     font-size: 1.4rem;
-    padding: 5px;
+    padding: 10px;
     float: left;
-    font-weight: normal;
     margin: 20px 15px;
-    background-color: #45aaf2be;
-    border-radius: 2px;
-    color: #1e272e;
+    background-color: #30336bbc;
+    border-radius: 5px;
+    color: #dff9fb;
     border: none;
     border-bottom: 2px solid transparent;
-    transition: all 0.2s ease-out; }
+    transition: all 0.4s ease-out; }
     .visualizer-container .button:hover {
-      background-color: #50da6e;
+      background-color: #22a6b3;
+      color: #34495e;
       border-radius: 3px;
       border: none;
       border-bottom: 2px solid #F79F1F; }
+  .visualizer-container .button-group-animation {
+    margin: 20px 15px;
+    padding: 10px; }

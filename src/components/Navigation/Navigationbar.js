@@ -7,7 +7,7 @@ const Navigationbar = () =>{
     
     return(
         <div  className={classes.Navigationbar}>
-            <a href="" className={classes.Circle}>
+            <a href="/" className={classes.Circle}>
                 <img src={Logo} alt="logo" className={classes.Logo}/>
             </a>
         </div>

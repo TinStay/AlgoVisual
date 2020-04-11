@@ -10,7 +10,7 @@ const InfoSection = (props) =>{
                 <div className="col-xl-6 ">
                     <img className="section-image" src={props.img} alt={props.heading}/>
                 </div>
-                <div className="col-xl-6 ">
+                <div className="col-xl-6 text-left">
                     <p>{props.text}</p>
                 </div>
                 
