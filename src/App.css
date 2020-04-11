@@ -14,13 +14,15 @@
   --bg-color: #ecf0f1;
   --font-color: #34495e;
   background-color: var(--bg-color);
-  color: var(--font-color); }
+  color: var(--font-color);
+  transition: all 0.6s ease-out; }
 
 .dark-mode {
   --bg-color: #34495e;
   --font-color: #f1f2f6;
   background-color: var(--bg-color);
-  color: var(--font-color); }
+  color: var(--font-color);
+  transition: all 0.6s ease-out; }
 
 .navigationbar {
   position: absolute;
@@ -98,11 +100,8 @@
   margin: 80px auto;
   padding: 30px;
   background: #134E5E;
-  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #71B280, #134E5E);
-  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #71B280, #134E5E);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-box-shadow: 1px 6px 13px 16px rgba(87, 96, 111, 0.33);
   -moz-box-shadow: 1px 6px 13px 16px rgba(87, 96, 111, 0.33);
   box-shadow: 1px 6px 13px 16px rgba(87, 96, 111, 0.33); }

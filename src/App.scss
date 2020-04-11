@@ -28,6 +28,7 @@ $blue: #3498db;
 
     background-color: var(--bg-color);
     color: var(--font-color);
+    transition: all 0.6s ease-out;
 }
 
 
@@ -37,6 +38,7 @@ $blue: #3498db;
 
     background-color: var(--bg-color);
     color: var(--font-color);
+    transition: all 0.6s ease-out;
 
 }
 
@@ -148,9 +150,9 @@ $blue: #3498db;
     height: 100%;
     margin: 80px auto;
     padding: 30px;
-    background: #134E5E;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #134E5E;  
+    background: -webkit-linear-gradient(to right, #71B280, #134E5E);  
+    background: linear-gradient(to right, #71B280, #134E5E); // Firefox
 
     
 
