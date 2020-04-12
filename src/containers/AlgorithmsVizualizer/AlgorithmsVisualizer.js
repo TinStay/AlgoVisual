@@ -17,7 +17,7 @@ function getRandomArbitrary(min, max) {
 
 const PRIMARY_COLOR = '#6a89cc';
 
-const SECONDARY_COLOR = '#eb2f06';
+const SECONDARY_COLOR = '#e74c3c';
 
 
 class Algorithms extends PureComponent{
@@ -141,9 +141,11 @@ class Algorithms extends PureComponent{
 
 
         return (
-            <div className='visualizer-container text-center'>
-             <h1 className='yellow mt-4'>Visualizer</h1>
-             <h4 className="white mt-4">Visualize how different sorting algorithms work under the hood. </h4>
+            <div id="visualizer-container" className='visualizer-container text-center'>
+             <div className="mt-4">
+                <h1 className='yellow mt-4 letter-spacing'>Visualizer</h1>
+                <h4 className="white mt-4">Visualize how different sorting algorithms work under the hood. </h4>
+             </div>
                 <div className='visualizer d-flex align-items-center flex-column' id='visualizer'>
                     <div className="bottom-aligned mt-auto">
                         {arrayVisualization}
@@ -153,8 +155,10 @@ class Algorithms extends PureComponent{
                 <div className='buttons row'>
                     <div className="col-lg-6 ">
                         <Slider change={this.changeArrayNumber}/>
-                        <button className='new-array float-left' onClick={() => this.newArray(this.state.arrayBars)}>Generate new array</button>
-                        <ButtonGroupAnimation changeTime={this.changeTimeHandler}/>
+                       <div className="row text-center">
+                       <button className='new-array col-md-6' onClick={() => this.newArray(this.state.arrayBars)}>Generate new array</button>
+                        <ButtonGroupAnimation className="col-12 col-md-6 " changeTime={this.changeTimeHandler}/>
+                       </div>
                     </div>
                     <div className="col-lg-6">
                         <button className='button'  onClick={() => this.mergeSort()}>Merge sort</button>

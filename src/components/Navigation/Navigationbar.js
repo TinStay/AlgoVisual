@@ -8,9 +8,9 @@ const Navigationbar = (props) =>{
     
     return(
         <div  className="navigationbar">
-            <a href="/" className='cirle'>
+            <div href="/" className='cirle'>
                 <img src={Logo} alt="logo" className="logo" />
-            </a>
+            </div>
             <div className="darkmode-container">
                 <span className="mr-2">Dark Mode</span>
                 <Switch onChange={props.toggleDarkMode} 

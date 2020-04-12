@@ -3,6 +3,7 @@ import './App.css';
 
 // Containers 
 import Algorithms from './containers/AlgorithmsVizualizer/AlgorithmsVisualizer';
+import CodeSection from './containers/Code/Code';
 
 // Components
 import Navigationbar from './components/Navigation/Navigationbar';
@@ -20,6 +21,7 @@ function App() {
       toggleDarkMode={() => setDarkMode(prevMode => !prevMode)}/>
       <Jumbotron />
      <Algorithms></Algorithms>
+     <CodeSection />
     </div>
   );
 }

@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth; }
+
 .yellow {
   color: #e2b810; }
 
@@ -10,22 +13,29 @@
 .white {
   color: #f1f2f6; }
 
+.letter-spacing {
+  letter-spacing: 5px; }
+
 .light-mode {
   --bg-color: #ecf0f1;
   --font-color: #34495e;
   --btn-color: #ecf0f1;
   --btn-toggle-color: #ecf0f1;
   --gradient-bgc-color: linear-gradient(to right, #71B280, #134E5E);
+  --btn-visualizer: #30336bbc;
+  --btn-visualizer-font: #ecf0f1;
   background-color: var(--bg-color);
   color: var(--font-color);
   transition: all 0.6s ease-out; }
 
 .dark-mode {
-  --bg-color: #222f3e;
+  --bg-color: #202d3d;
   --font-color: #ecf0f1;
   --btn-color: #34495e;
   --btn-toggle-color: #e2b810;
-  --gradient-bgc-color:  linear-gradient(to right, #3a6186, #89253e);
+  --gradient-bgc-color:  linear-gradient(to left, #460042, #065972);
+  --btn-visualizer: #22a6b3;
+  --btn-visualizer-font: #30336bbc;
   background-color: var(--bg-color);
   color: var(--font-color);
   transition: all 0.6s ease-out; }
@@ -39,20 +49,30 @@
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #71B280, #134E5E);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #71B280, #134E5E);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
+  background: var(--gradient-bgc-color);
+  border-bottom: 2px solid #e2b810;
+  transition: all 0.6s ease-out; }
   .navigationbar .cirle {
-    width: 100px; }
+    position: absolute;
+    left: 50%;
+    margin-left: -53px !important;
+    width: 106px;
+    height: 106px;
+    margin: 10px auto;
+    padding: 8px;
+    background-color: #275275;
+    border-radius: 45%; }
   .navigationbar .logo {
     position: absolute;
     left: 50%;
-    width: 100px;
-    margin-left: -50px !important;
-    background-color: #b8e994;
-    border-radius: 45%;
-    padding: 20px;
-    margin: 10px;
-    z-index: 10; }
+    width: 90px;
+    height: 90px;
+    margin-left: -45px !important;
+    border-radius: 15%;
+    padding: 10px;
+    margin: 0 auto;
+    z-index: 10;
+    transition: all 0.6s ease-out; }
   .navigationbar .darkmode-container {
     margin: 10px 20px;
     text-align: center;
@@ -120,6 +140,8 @@
   background: #134E5E;
   background: -webkit-linear-gradient(to right, #71B280, #134E5E);
   background: var(--gradient-bgc-color);
+  border-top: 1px solid #e2b810;
+  border-bottom: 1px solid #e2b810;
   -webkit-box-shadow: 1px 6px 13px 16px rgba(87, 96, 111, 0.33);
   -moz-box-shadow: 1px 6px 13px 16px rgba(87, 96, 111, 0.33);
   box-shadow: 1px 6px 13px 16px rgba(87, 96, 111, 0.33); }
@@ -135,15 +157,13 @@
     border-radius: 2px;
     background-color: #6a89cc;
     margin: 0 2px;
-    animation: arraybar 0.3s;
-    transition: background-color 0.3s ease-in; }
+    animation: arraybar 0.3s; }
 
 @keyframes arraybar {
   0% {
     opacity: 0; }
   25% {
-    opacity: 0.25;
-    background-color: #e2b810; }
+    opacity: 0.25; }
   50% {
     opacity: 0.5; }
   75% {
@@ -172,15 +192,15 @@
     padding: 7px;
     float: left;
     margin: 20px 15px;
-    background-color: #30336bbc;
+    background-color: var(--btn-visualizer);
     border-radius: 5px;
-    color: #dff9fb;
+    color: var(--btn-visualizer-font);
     border: none;
     border-bottom: 2px solid transparent;
     transition: all 0.4s ease-out; }
     .visualizer-container .button:hover {
       background-color: #22a6b3;
-      color: #34495e;
+      color: var(--font-color);
       border-radius: 3px;
       border: none;
       border-bottom: 2px solid #F79F1F; }
@@ -191,3 +211,27 @@
   .visualizer-container .button-group-animation {
     margin: 20px 15px;
     padding: 10px; }
+
+.code-container {
+  height: 100%;
+  margin: 7% auto; }
+  .code-container .code-jumbotron {
+    width: 80%;
+    margin: 150px auto 50px auto; }
+  .code-container .code-section {
+    width: 80%;
+    margin: 50px auto; }
+  .code-container .explanation-section {
+    margin: 50px auto; }
+  .code-container .explanation-text {
+    margin: 25px auto;
+    letter-spacing: 1px;
+    line-height: 1.7rem; }
+
+.code {
+  margin: 20px auto;
+  background-color: #dfe4ea;
+  border: 1px solid #b6c4d4;
+  border-radius: 15px;
+  padding: 12px;
+  font-size: 1.1rem; }

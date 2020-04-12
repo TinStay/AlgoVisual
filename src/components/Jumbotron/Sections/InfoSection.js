@@ -17,7 +17,7 @@ const InfoSection = (props) =>{
                 
                
             </div>
-            <button style={{backgroundColor: props.btnColor}} className="btn">Go to {props.heading}</button>
+            <a href={"#"+props.heading.toLowerCase()+'-container'} style={{backgroundColor: props.btnColor}} className="btn">Go to {props.heading}</a>
         </div>
     )
 }
