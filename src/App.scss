@@ -26,6 +26,8 @@ $blue: #3498db;
     --bg-color: #ecf0f1;
     --font-color: #34495e;
     --btn-color: #ecf0f1;
+    --btn-toggle-color: #ecf0f1;
+    --gradient-bgc-color: linear-gradient(to right, #71B280, #134E5E);
 
     background-color: var(--bg-color);
     color: var(--font-color);
@@ -37,6 +39,8 @@ $blue: #3498db;
     --bg-color: #222f3e;
     --font-color: #ecf0f1;
     --btn-color: #34495e;
+    --btn-toggle-color: #e2b810;
+    --gradient-bgc-color:  linear-gradient(to right, #3a6186, #89253e);
 
     background-color: var(--bg-color);
     color: var(--font-color);
@@ -70,6 +74,18 @@ $blue: #3498db;
         padding: 20px;
         margin: 10px;
         z-index: 10;
+    }
+
+    .darkmode-container{
+    margin: 10px 20px;
+    text-align: center;
+    color: var(--btn-toggle-color);
+    display: flex;
+    flex-direction: row;
+    float: right;
+    transition: all 0.6s ease-out;
+    // justify-content: space-between;
+    
     }
 }
 
@@ -110,7 +126,7 @@ $blue: #3498db;
 
     .section{
         text-align: center;
-        margin: 40px auto;
+        margin: 0 auto 40px auto;
 
         .h1{
             font-size: 3rem;
@@ -139,9 +155,12 @@ $blue: #3498db;
         
 
         .section-image{
-            width: 200px;
+            // width: 200px;
+            height: 200px;
             margin: 20px 0;
-            padding: 0;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border-radius: 15px;
         }
     }
     
@@ -157,7 +176,7 @@ $blue: #3498db;
     padding: 30px;
     background: #134E5E;  
     background: -webkit-linear-gradient(to right, #71B280, #134E5E);  
-    background: linear-gradient(to right, #71B280, #134E5E); // Firefox
+    background: var(--gradient-bgc-color);
 
     
 
@@ -181,13 +200,17 @@ $blue: #3498db;
         background-color: #6a89cc;
         margin: 0 2px;
         animation: arraybar 0.3s;
+        transition: background-color 0.3s ease-in;
 
         @keyframes arraybar{
             0%{
                 opacity: 0;
+
             }
             25%{
                 opacity: 0.25;
+                background-color: $yellow;
+
             }
             50%{
                 opacity: 0.5;

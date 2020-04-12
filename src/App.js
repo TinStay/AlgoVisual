@@ -15,7 +15,8 @@ function App() {
 
   return (
     <div className={darkMode ? "dark-mode": "light-mode"}>
-      <Navigationbar 
+      <Navigationbar
+      isDarkModeOn={darkMode} 
       toggleDarkMode={() => setDarkMode(prevMode => !prevMode)}/>
       <Jumbotron />
      <Algorithms></Algorithms>
