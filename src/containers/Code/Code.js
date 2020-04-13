@@ -1,18 +1,24 @@
 import React, { PureComponent } from 'react';
 import LanguageTabs from '../../components/Code/Languages/LanguageTabs';
-import mergeSortImg from '../../assets/mergeSortImg.png';
+import { AlgoSortInfo } from '../../components/Algorithms/AlgorithmsInfo';
+
+import {Tabs, Tab} from 'react-bootstrap';
 
 
 
 class CodeSection extends PureComponent{
     state={
-        
+        sort: 'merge'
     
     }
 
+    setSort = (sort) =>{
+        this.setState({sort: sort})
+        
+    }
 
     render(){
-       
+        console.log(this.state.sort)
     
 
         return (
@@ -24,20 +30,27 @@ class CodeSection extends PureComponent{
              <div className="row code-section ">
              <div className="col-md-5 explanation-section">
                     <h1>Explanation</h1>
-                    <div className="explanation">
-                        <div className="row explanation-text">
-                        <p>Merge sort is a sorting technique based on divide and conquer technique. With worst-case time complexity being Ο(n log n), it is one of the most respected algorithms.
-                            Merge sort first divides the array into equal halves and then combines them in a sorted manner.</p>
-                        </div>
-                        <div className="image">
-                            <img src={mergeSortImg} alt="mergeSortImg"/>
-                        </div>
-                    </div>
+                    <Tabs
+                    id="controlled-tab-example"
+                    activeKey={this.state.sort}
+                    onSelect={(sort) => this.setSort(sort)}
+                    >
+                    <Tab eventKey="merge" title="Merge sort">
+                        <AlgoSortInfo sort={this.state.sort}/>
+                    </Tab>
+                    <Tab eventKey="quick" title="Quick sort">
+                        <AlgoSortInfo sort={this.state.sort}/>
+                    </Tab>
+                    <Tab eventKey="bubble" title="Bubble sort" >
+                        <AlgoSortInfo sort={this.state.sort}/>
+                    </Tab>
+                    </Tabs>
+                    
                 </div>
                 <div className="col-md-5 code-section">
                     <h1>Code</h1>
                     <div className="row languages">
-                        <LanguageTabs />
+                        <LanguageTabs sort={this.state.sort}/>
                     </div>
                 </div>
                 
