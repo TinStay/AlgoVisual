@@ -25,15 +25,15 @@ class LanguageTabs extends PureComponent{
               activeKey={this.state.language}
               onSelect={(k) => this.setLanguage(k)}
             >
-              <Tab eventKey="js" title="JavaScript">
+              <Tab eventKey="js" title="JavaScript" className="">
                     <LanguageCode sort={this.props.sort}
                     language={this.state.language} />
               </Tab>
-              <Tab eventKey="python" title="Python">
+              <Tab eventKey="python" title="Python" className="">
                   <LanguageCode sort={this.props.sort}
                     language={this.state.language} />      
               </Tab>
-              <Tab eventKey="c#" title="C#" >
+              <Tab eventKey="c#" title="C#" className="">
               <LanguageCode sort={this.props.sort} 
                     language={this.state.language} />
               </Tab>

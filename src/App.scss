@@ -38,6 +38,7 @@ html {
     --gradient-bgc-color: linear-gradient(to right, #71B280, #134E5E);
     --btn-visualizer: #30336bbc;
     --btn-visualizer-font: #ecf0f1;
+    --console-color: #dce3eb;
 
     background-color: var(--bg-color);
     color: var(--font-color);
@@ -54,6 +55,7 @@ html {
     --gradient-bgc-color:  linear-gradient(to left, #460042, #065972);
     --btn-visualizer: #22a6b3;
     --btn-visualizer-font: #30336bbc;
+    --console-color: #121e2e;
 
     background-color: var(--bg-color);
     color: var(--font-color);
@@ -314,25 +316,59 @@ html {
     }
     
 .code-container{
-    height: 100%;
+    // height: 100%;
     margin: 7% auto;
+    
 
     .code-jumbotron{
         width: 80%;
         margin: 150px auto 50px auto;
     }
 
-    .code-section{
-        width: 80%;
+    .code-section-main{
+        width: 90%;
+        // height: 100%;
         margin: 50px auto;
+
+        .explanation-section{
+            margin: 50px auto;
+            
+        }
+
+        .code-section{
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+                    
+        }
+
+        .languages{
+            
+        }
+            
+            
     }
 
-    .explanation-section{
-        margin: 50px auto;
-    }
+   
 
     .explanation{
+        
 
+        img{
+            text-align: center;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            width: 100%;
+            margin: 0 auto;
+
+            @media screen  and (min-width: 1199px){
+                width: 80%;
+                margin: 0 auto;
+                height: 80%;
+            }
+        }
+        
     }
 
     .explanation-text{
@@ -340,18 +376,29 @@ html {
         letter-spacing: 1px;
         line-height: 1.7rem;
     }
+
+
 }
+
 
 .code{
     margin: 20px auto;
-    background-color: #dfe4ea;
+    width: 100%;
+    height: 800px;
+    background-color: var(--console-color);
     border: 1px solid #b6c4d4;
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 12px;
     font-size: 1.1rem;
+    overflow-x: auto;
+    white-space:pre-wrap;
+    
+    p{
+        color: var(--font-color);
+        
+        white-space: pre-wrap;
+        // word-break: break-word;
+        
+    
+    }
 }
-
-
-
-
-

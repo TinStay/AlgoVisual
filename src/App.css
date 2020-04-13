@@ -24,6 +24,7 @@ html {
   --gradient-bgc-color: linear-gradient(to right, #71B280, #134E5E);
   --btn-visualizer: #30336bbc;
   --btn-visualizer-font: #ecf0f1;
+  --console-color: #dce3eb;
   background-color: var(--bg-color);
   color: var(--font-color);
   transition: all 0.6s ease-out; }
@@ -36,6 +37,7 @@ html {
   --gradient-bgc-color:  linear-gradient(to left, #460042, #065972);
   --btn-visualizer: #22a6b3;
   --btn-visualizer-font: #30336bbc;
+  --console-color: #121e2e;
   background-color: var(--bg-color);
   color: var(--font-color);
   transition: all 0.6s ease-out; }
@@ -213,16 +215,31 @@ html {
     padding: 10px; }
 
 .code-container {
-  height: 100%;
   margin: 7% auto; }
   .code-container .code-jumbotron {
     width: 80%;
     margin: 150px auto 50px auto; }
-  .code-container .code-section {
-    width: 80%;
+  .code-container .code-section-main {
+    width: 90%;
     margin: 50px auto; }
-  .code-container .explanation-section {
-    margin: 50px auto; }
+    .code-container .code-section-main .explanation-section {
+      margin: 50px auto; }
+    .code-container .code-section-main .code-section {
+      margin: 50px auto;
+      display: flex;
+      flex-direction: column;
+      height: 100%; }
+  .code-container .explanation img {
+    text-align: center;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    width: 100%;
+    margin: 0 auto; }
+    @media screen and (min-width: 1199px) {
+      .code-container .explanation img {
+        width: 80%;
+        margin: 0 auto;
+        height: 80%; } }
   .code-container .explanation-text {
     margin: 25px auto;
     letter-spacing: 1px;
@@ -230,8 +247,15 @@ html {
 
 .code {
   margin: 20px auto;
-  background-color: #dfe4ea;
+  width: 100%;
+  height: 800px;
+  background-color: var(--console-color);
   border: 1px solid #b6c4d4;
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 12px;
-  font-size: 1.1rem; }
+  font-size: 1.1rem;
+  overflow-x: auto;
+  white-space: pre-wrap; }
+  .code p {
+    color: var(--font-color);
+    white-space: pre-wrap; }
