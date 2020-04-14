@@ -7,9 +7,9 @@ const LanguageCode = (props) => {
         case("js"):
             if(props.sort==="merge"){
                 code = `
-    // Split the array into halves and merge them recursively 
-    function mergeSort (arr) {
-    if (arr.length === 1) {
+    1. // Split the array into halves and merge them recursively 
+    2. function mergeSort (arr) {
+    3. if (arr.length === 1) {
         // return once we hit an array with a single item
         return arr
     }
@@ -368,7 +368,7 @@ namespace QuickSortDemo {
     return <div className="code">
             <pre>
                 <code>
-                    <p>{code}</p>
+                    {code}
                 </code>
             </pre>
         </div>

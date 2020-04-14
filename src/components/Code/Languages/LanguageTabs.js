@@ -22,6 +22,7 @@ class LanguageTabs extends PureComponent{
         return (
             <Tabs
               id="controlled-tab-example"
+              className="justify-content-center d-flex "
               activeKey={this.state.language}
               onSelect={(k) => this.setLanguage(k)}
             >
@@ -34,6 +35,18 @@ class LanguageTabs extends PureComponent{
                     language={this.state.language} />      
               </Tab>
               <Tab eventKey="c#" title="C#" className="">
+              <LanguageCode sort={this.props.sort} 
+                    language={this.state.language} />
+              </Tab>
+              <Tab eventKey="c++" title="C++" className="">
+              <LanguageCode sort={this.props.sort} 
+                    language={this.state.language} />
+              </Tab>
+              <Tab eventKey="java" title="Java" className="">
+              <LanguageCode sort={this.props.sort} 
+                    language={this.state.language} />
+              </Tab>
+              <Tab eventKey="swift" title="Swift" className="">
               <LanguageCode sort={this.props.sort} 
                     language={this.state.language} />
               </Tab>

@@ -48,7 +48,7 @@ class Algorithms extends PureComponent{
         let array = [];
          
         for(let i =0; i < arrayBars; i++){
-            array.push(getRandomArbitrary(5, 300));
+            array.push(getRandomArbitrary(5, 350));
         }
 
         const visualizer = document.getElementById("visualizer")
@@ -57,7 +57,7 @@ class Algorithms extends PureComponent{
         const visualizerWidth = visualizer.offsetWidth
 
         // Set visualizer height
-        visualizer.style.height = `${300 + 90}px`; 
+        visualizer.style.height = `${350 + 90}px`; 
       
 
         
