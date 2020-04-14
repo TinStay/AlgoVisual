@@ -22,9 +22,9 @@ class CodeSection extends PureComponent{
     
 
         return (
-            <div id="code-container" className='code-container '>
+            <div  className='code-container '>
              <div className=" text-center code-jumbotron">
-                <h1 className='red  letter-spacing'>Code Review</h1>
+                <h1 className='red  letter-spacing'>Code and Explanation</h1>
                 <h4 className=" mt-4">Check out the code behind the sorting algorithms and read more about the logic behind them. </h4>
              </div>
              <div className="row code-section-main ">
@@ -47,7 +47,7 @@ class CodeSection extends PureComponent{
                             </Tabs>
                         
                     </div>
-                    <div className="  code-section">
+                    <div id="code-container" className="code-section">
                         <h1 className="mb-4 text-center">Code</h1>
                         <div className="languages ">
                             <LanguageTabs sort={this.state.sort}/>

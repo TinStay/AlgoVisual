@@ -36,7 +36,7 @@ const Section = (props) =>{
                     </div>
                     <div className="col-xl-4">
                     <InfoSection 
-                    heading="Time and space complexity"
+                    heading="Time Complexity"
                     img={SpaceImg}
                     btnColor="#3498db"
                     text="Lorem ipsum dolor sit amet consectetur 
