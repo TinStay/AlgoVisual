@@ -29,7 +29,7 @@ html {
   --btn-visualizer: #30336bbc;
   --btn-visualizer-font: #ecf0f1;
   --console-color: #dce3eb;
-  --complexity-bgc: linear-gradient(to top, #67b2a8ab, #4ccd82ea);
+  --complexity-bgc: linear-gradient(to top, #67b2a8e3, #bbdc58c0);
   --complexity-bgc-chrome: -webkit-linear-gradient(to right, #76b852, #8dc26f);
   background-color: var(--bg-color);
   color: var(--font-color);
