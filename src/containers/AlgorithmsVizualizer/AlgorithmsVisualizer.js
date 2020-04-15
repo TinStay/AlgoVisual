@@ -126,7 +126,7 @@ class Algorithms extends PureComponent{
     render(){
        
         const width = (this.state.visualizerWidth-40)/this.state.arrayBars - 5;
-        let arrayVisualization = <p>Too much elements. Try decreasing the number of elements.</p>
+        let arrayVisualization = <p className="blue">Too much elements. Try decreasing the number of elements.</p>
 
         if(width >= 2){
             arrayVisualization = this.state.array.map((num, idx) =>{  

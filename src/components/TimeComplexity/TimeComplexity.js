@@ -6,7 +6,7 @@ const TimeComplexity = () =>{
 
     return(
         <div id="timecomplexity-container" className='timecomplexity-container text-center'>
-             <div className="mt-4">
+             <div className="compl-jumbotron">
                 <h1 className='blue mt-4 letter-spacing'>Time and space compexity </h1>
                 <h4 className=" mt-4">Find out which algorithms take more time to perform and understand the big O notation.</h4>
              </div>

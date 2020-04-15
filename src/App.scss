@@ -11,6 +11,12 @@ $blue: #3498db;
 
 html {
     scroll-behavior: smooth;
+    ::-moz-selection {
+        background: #1abc9c; /* Gecko Browsers */
+    }
+    ::selection {
+        background: #1abc9c; /* WebKit/Blink Browsers */
+      }
     
   }
 
@@ -52,9 +58,7 @@ html {
     background-color: var(--bg-color);
     color: var(--font-color);
     transition: all 0.6s ease-out;
-    ::-moz-selection {
-        background: #1abc9c; /* Gecko Browsers */
-      }
+    
 }
 
 
@@ -74,9 +78,7 @@ html {
     background-color: var(--bg-color);
     color: var(--font-color);
     transition: all 0.6s ease-out;
-    ::-moz-selection {
-        background: #1abc9c; /* Gecko Browsers */
-      }
+    
 
 }
 
@@ -343,7 +345,7 @@ box-shadow: 0px 0px 15px 14px rgba(60,99,130,0.48);
 
     .code-jumbotron{
         width: 80%;
-        margin: 150px auto 50px auto;
+        margin: 100px auto 50px auto;
     }
 
     .code-section-main{
@@ -429,8 +431,8 @@ box-shadow: 0px 0px 15px 14px rgba(60,99,130,0.48);
 
 
 .timecomplexity-container{
-
-    margin: 80px auto;
+    // width: 80%;
+    margin: 150px auto 50px auto;
     padding: 30px 0;
     background: #76b852;
     background: var(--complexity-bgc-chrome);
@@ -439,6 +441,10 @@ box-shadow: 0px 0px 15px 14px rgba(60,99,130,0.48);
     border-bottom: 1px solid $blue;
 
 
+    .compl-jumbotron{
+        width: 80%;
+        margin: 40px auto 50px auto;
+    }
     
     
 
@@ -489,4 +495,8 @@ box-shadow: 0px 0px 15px 14px rgba(60,99,130,0.48);
         }
 
     }
+}
+
+.page-footer{
+    background-color: var(--bg-color);
 }

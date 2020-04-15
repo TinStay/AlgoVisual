@@ -9,6 +9,7 @@ import CodeSection from './containers/Code/Code';
 import Navigationbar from './components/Navigation/Navigationbar';
 import Jumbotron from './components/Jumbotron/Jumbotron';
 import TimeComplexity from './components/TimeComplexity/TimeComplexity';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
      <Algorithms></Algorithms>
      <CodeSection />
      <TimeComplexity />
+     <Footer />
     </div>
   );
 }
