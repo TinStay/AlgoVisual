@@ -21,12 +21,16 @@ function App() {
       <Navigationbar
       isDarkModeOn={darkMode} 
       toggleDarkMode={() => setDarkMode(prevMode => !prevMode)}/>
-      <a href="#navbar" className=" scroll-to-top"><span>&#x02C4;</span></a>
+      
       <Jumbotron />
-     <AlgorithmsVisualizer></AlgorithmsVisualizer>
+      <AlgorithmsVisualizer />
+     <div className="main-content">
+      <a href="#navbar" className=" scroll-to-top"><span>&#x02C4;</span></a>
+     
      <CodeSection />
      <TimeComplexity />
      <Footer />
+     </div>
     </div>
   );
 }
