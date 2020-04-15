@@ -10,7 +10,7 @@ const Footer = () =>{
     <footer class="page-footer font-small blue pt-4">
 
 
-    <div class="container-fluid text-center text-md-left">
+    <div class="footer-container text-center text-md-left">
 
 
         <div class="row">
@@ -18,49 +18,42 @@ const Footer = () =>{
 
         <div class="col-md-6 mt-md-0 mt-3">
 
-            <h5 class="text-uppercase">Footer Content</h5>
-            <p>Here you can use rows and columns to organize your footer content.</p>
+            <h5 class="text-uppercase">More info</h5>
+            <p>If you want to find more about me and my work you can check the following links:</p>
 
         </div>
 
         <hr class="clearfix w-100 d-md-none pb-3" />
 
-        <div class="col-md-3 mb-md-0 mb-3">
+        <div class="col-md-2 mb-md-0 mb-3">
 
-            <h5 class="text-uppercase">Links</h5>
+            <h5 class="text-uppercase">Personal Website</h5>
 
             <ul class="list-unstyled">
             <li>
-                <a href="#!">Link 1</a>
-            </li>
-            <li>
-                <a href="#!">Link 2</a>
-            </li>
-            <li>
-                <a href="#!">Link 3</a>
-            </li>
-            <li>
-                <a href="#!">Link 4</a>
+                <a href="https://tinstay.herokuapp.com/" target="_blank">https://tinstay.herokuapp.com/</a>
             </li>
             </ul>
 
         </div>
-        <div class="col-md-3 mb-md-0 mb-3">
+        <div class="col-md-2 mb-md-0 mb-3">
 
-            <h5 class="text-uppercase">Links</h5>
+            <h5 class="text-uppercase">Github</h5>
 
             <ul class="list-unstyled">
             <li>
-                <a href="#!">Link 1</a>
+                <a href="https://github.com/TinStay" target="_blank">https://github.com/TinStay</a>
             </li>
+            </ul>
+
+        </div>
+        <div class="col-md-2 mb-md-0 mb-3">
+
+            <h5 class="text-uppercase">Twitter</h5>
+
+            <ul class="list-unstyled">
             <li>
-                <a href="#!">Link 2</a>
-            </li>
-            <li>
-                <a href="#!">Link 3</a>
-            </li>
-            <li>
-                <a href="#!">Link 4</a>
+                <a href="#!" target="_blank">https://twitter.com/TinStay</a>
             </li>
             </ul>
 
@@ -73,8 +66,8 @@ const Footer = () =>{
     </div>
     </div>
 
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    <div class="footer-copyright text-center py-3">Website repo:
+        <a href="https://github.com/TinStay/AlgoVisual" target="_blank"> https://github.com/TinStay/AlgoVisual</a>
     </div>
     
 

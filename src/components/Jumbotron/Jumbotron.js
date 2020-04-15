@@ -8,7 +8,7 @@ const Jumbotron = () =>{
     
     return(
         <div>
-            <div className='jumbotron container'>
+            <div className='jumbotron container' id="jumbotron">
                 <h1 className="heading">Welcome to <span className="yellow">Al</span>
                 <span className="red">go</span><span className="blue">Visual</span></h1>
                 <h3 className="info">

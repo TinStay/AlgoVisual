@@ -47,11 +47,22 @@ class CodeSection extends PureComponent{
                             </Tabs>
                         
                     </div>
-                    <div id="code-container" className="code-section">
-                        <h1 className="mb-4 text-center">Code</h1>
+                    <div id="code-container" className="code-section d-lg-flex justify-content-center">
                         <div className="languages ">
+                            <h1 className="mb-4 text-center">Code</h1>
                             <LanguageTabs sort={this.state.sort}/>
                         </div>
+                        <div className="sorts ">
+                            <ul class="list-group">
+                                <li className={this.state.sort === 'merge' ? "list-group-item active": 'list-group-item'} ><button className="btn" onClick={() => this.setSort('merge')}>Mergesort</button> </li>
+                                <li className={this.state.sort === 'quick' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('quick')}>Quicksort</button> </li>
+                                <li className={this.state.sort === 'bubble' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('bubble')}>Bubble sort</button> </li>
+                                <li className={this.state.sort === 'asd' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('merge')}>Mergesort</button> </li>
+                                <li className={this.state.sort === 'dw' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('bubble')}>Bubble sort</button> </li>
+                                <li className={this.state.sort === 'quiasdck' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('merge')}>Mergesort</button> </li>
+                                
+                            </ul>
+                        </div> 
                     </div>
                     
             </div>

@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import './App.css';
 
 // Containers 
-import Algorithms from './containers/AlgorithmsVizualizer/AlgorithmsVisualizer';
+import AlgorithmsVisualizer from './containers/AlgorithmsVizualizer/AlgorithmsVisualizer';
 import CodeSection from './containers/Code/Code';
 
 // Components
@@ -21,8 +21,9 @@ function App() {
       <Navigationbar
       isDarkModeOn={darkMode} 
       toggleDarkMode={() => setDarkMode(prevMode => !prevMode)}/>
+      <a href="#navbar" className=" scroll-to-top"><span>&#x02C4;</span></a>
       <Jumbotron />
-     <Algorithms></Algorithms>
+     <AlgorithmsVisualizer></AlgorithmsVisualizer>
      <CodeSection />
      <TimeComplexity />
      <Footer />

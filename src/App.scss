@@ -18,7 +18,12 @@ html {
         background: #1abc9c; /* WebKit/Blink Browsers */
       }
     
-  }
+}
+
+.btn:focus,.btn:active, button:focus, button:active {
+    outline: none !important;
+    box-shadow: none;
+ }
 
 .yellow{
     color: $yellow;
@@ -46,8 +51,8 @@ html {
     --font-color: #34495e;
     --btn-color: #ecf0f1;
     --btn-toggle-color: #ecf0f1;
-    --gradient-bgc-color: linear-gradient(to right, rgb(133, 182, 104), #134E5E);
-    --gradient-bgc-color-chrome: -webkit-linear-gradient(to right, rgb(133, 182, 104), #134E5E);  
+    --gradient-bgc-color: linear-gradient(to right, rgb(138, 200, 102), #134E5E);
+    --gradient-bgc-color-chrome: -webkit-linear-gradient(to right, rgb(138, 200, 102), #134E5E);  
     --btn-visualizer: #30336bbc;
     --btn-visualizer-font: #ecf0f1;
     --console-color: #dce3eb;
@@ -136,12 +141,36 @@ html {
 }
 
 
+.scroll-to-top{
+    position: sticky;
+    top: 95%;
+    left: 95%;
+    z-index: 100;
+    
+    
+    padding: 5px 8px;
+    
+    &:hover{
+        text-decoration: none;
+        list-style-type: none;
+       }
+   
+    span{
+        font-size: 2.5rem;
+        font-weight: bold;
+        
+        
+        
+       
+        
+    }
+}
 
 
 
 .jumbotron{
 
-    margin: 70px auto 40px auto;
+    margin: 0 auto 40px auto;
     color: var(--font-color);
     text-align: center;
     background-color: var(--bg-color);
@@ -342,6 +371,7 @@ box-shadow: 0px 0px 15px 14px rgba(60,99,130,0.48);
     // height: 100%;
     margin: 7% auto;
     
+    
 
     .code-jumbotron{
         width: 80%;
@@ -352,31 +382,70 @@ box-shadow: 0px 0px 15px 14px rgba(60,99,130,0.48);
         width: 90%;
         // height: 100%;
         margin: 50px auto;
+        
+        
 
         .explanation-section{
-            margin: 50px auto;
-            
+            margin: 30px auto;
+             
         }
 
         .code-section{
+            width: 100%;
             margin: 0 auto;
             
-            width: 100%;
 
-            @media screen and (min-width: 969px){
-                width: 80%;
+            .languages{
+                margin: 0 auto ;
+                width: 100%;
+
+                
+                @media screen and (min-width: 969px){
+                    width: 80%;
+                    margin: 0 30px ; 
+                }
+                @media screen and (min-width: 1699px){
+                    width: 65%;
+                    margin: 0 30px ;  
+                }
+                
             }
-            @media screen and (min-width: 1699px){
-                width: 70%;
-            }
+            
+            .sorts{
+                margin: auto auto;
+                width: 60%;
+                text-align: center;
+                @media screen and (min-width: 969px){
+                    width: 15%;
+                    // margin: 0 30px ; 
+                }
+                @media screen and (min-width: 1699px){
+                    width: 15%;
+                    margin: auto 30px ;  
+                }
+
+                .list-group-item{
+                    background-color: var(--bg-color);
+                    border: 1px solid #2980b9;
                     
+                    
+                    .btn{
+                        color: var(--font-color);
+                        &::-moz-focus-inner{
+                            outline: none;
+                            border: none;                            
+                        }
+                        
+                        
+                    }
+                    &.active{
+                        background-color: #1abc9c;
+                    }
+                }
+            }
         }
 
-    
-            
     }
-
-   
 
     .explanation{
         
@@ -472,7 +541,7 @@ box-shadow: 0px 0px 15px 14px rgba(60,99,130,0.48);
 
         p{ 
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 6px;
             color: $dark-bgc-color;
             vertical-align: middle;
             margin: auto auto;
@@ -498,5 +567,17 @@ box-shadow: 0px 0px 15px 14px rgba(60,99,130,0.48);
 }
 
 .page-footer{
+    margin-top: 100px;
     background-color: var(--bg-color);
+
+
+    .footer-container{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .footer-copyright{
+        margin-top: 70px;
+        background-color: #18293def;
+    }
 }

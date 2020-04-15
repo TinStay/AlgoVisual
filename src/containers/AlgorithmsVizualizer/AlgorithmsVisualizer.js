@@ -20,7 +20,7 @@ const PRIMARY_COLOR = '#6a89cc';
 const SECONDARY_COLOR = '#e74c3c';
 
 
-class Algorithms extends PureComponent{
+class AlgorithmsVisualizer extends PureComponent{
     state={
         array: [],
         arrayBars: 50,
@@ -142,6 +142,7 @@ class Algorithms extends PureComponent{
 
         return (
             <div id="visualizer-container" className='visualizer-container text-center'>
+                
              <div className="mt-4">
                 <h1 className='yellow mt-4 letter-spacing'>Visualizer</h1>
                 <h4 className="white mt-4">Visualize how different sorting algorithms work under the hood. </h4>
@@ -189,5 +190,5 @@ class Algorithms extends PureComponent{
 }
 
 
-export default Algorithms;
+export default AlgorithmsVisualizer;
 
