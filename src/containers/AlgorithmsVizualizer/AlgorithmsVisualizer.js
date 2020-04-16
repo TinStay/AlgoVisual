@@ -23,6 +23,7 @@ const SECONDARY_COLOR = '#e74c3c';
 class AlgorithmsVisualizer extends PureComponent{
     state={
         array: [],
+        states: [],
         arrayBars: 50,
         visualizerWidth: 0,
         animationSpeed: 10,
@@ -46,9 +47,12 @@ class AlgorithmsVisualizer extends PureComponent{
     newArray = (arrayBars) =>{
 
         let array = [];
+        let states= [];
          
         for(let i =0; i < arrayBars; i++){
-            array.push(getRandomArbitrary(5, 350));
+            array.push(parseInt(getRandomArbitrary(5, 350)));
+            states[i] = -1;
+
         }
 
         const visualizer = document.getElementById("visualizer")
@@ -58,12 +62,11 @@ class AlgorithmsVisualizer extends PureComponent{
 
         // Set visualizer height
         visualizer.style.height = `${350 + 90}px`; 
-      
-
         
 
         this.setState({
             array: array,
+            states: states,
             visualizerWidth: visualizerWidth,
         })
     }
@@ -78,38 +81,82 @@ class AlgorithmsVisualizer extends PureComponent{
         while(i < animations.length) {
 
         const j = i;
-          const arrayBars = document.getElementsByClassName('array-bar');
-          const isColorChange = i % 3 !== 2;
+        const arrayBars = document.getElementsByClassName('array-bar');
+        const isColorChange = i % 3 !== 2;
 
-          if (isColorChange) {
-            // Changing colors of the starting and the smallest array elements animation
-            const [barOneIdx, barTwoIdx] = animations[j];
+        if (isColorChange) {
+        // Changing colors of the starting and the smallest array elements animation
+        const [barOneIdx, barTwoIdx] = animations[j];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+
+        setTimeout(() => {
+            barOneStyle.backgroundColor = color;
+            barTwoStyle.backgroundColor = color;
+        }, i * this.state.animationSpeed);
+        } else {
+        setTimeout(() => {
+        // Overwriting the array numbers --- sorting them
+            const [barOneIdx, newHeight] = animations[j];
             const barOneStyle = arrayBars[barOneIdx].style;
-            const barTwoStyle = arrayBars[barTwoIdx].style;
-            const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
-
-            setTimeout(() => {
-              barOneStyle.backgroundColor = color;
-              barTwoStyle.backgroundColor = color;
-            }, i * this.state.animationSpeed);
-          } else {
-            setTimeout(() => {
-            // Overwriting the array numbers --- sorting them
-              const [barOneIdx, newHeight] = animations[j];
-              const barOneStyle = arrayBars[barOneIdx].style;
-              barOneStyle.height = `${newHeight}px`;
-            }, i * this.state.animationSpeed);
-          }
-
-          i++;
+            barOneStyle.height = `${newHeight}px`;
+        }, i * this.state.animationSpeed);
         }
+
+        i++;
+        }
+
+        
 
         // await setTimeout(() =>{
         //     this.setState({disabled: false});
         // }, i * this.state.animationSpeed);
       }
 
+    quickSort(){
+        let array = this.state.array
+        let animations = algorithms.getQuicksortAnimations(array)
+        console.log(animations)
+
+        let i = 0;
+        while(i < animations.length) {
+
+        const j = i;
+        const arrayBars = document.getElementsByClassName('array-bar');
+        const isColorChange = i % 3 !== 2;
+
+        if (isColorChange) {
+        // Changing colors of the starting and the smallest array elements animation
+        const [barOneIdx, barTwoIdx, barThreeIdx] = animations[j];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        // const barThreeStyle = arrayBars[barThreeIdx].style;
+        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+
+        setTimeout(() => {
+            barOneStyle.backgroundColor = color;
+            barTwoStyle.backgroundColor = color;
+            // barThreeStyle.backgroundColor = 'green';
+        }, i * this.state.animationSpeed);
+        } else {
+        setTimeout(() => {
+        // Overwriting the array numbers --- sorting them
+            const [barOneIdx, newHeight] = animations[j];
+            const barOneStyle = arrayBars[barOneIdx].style;
+            barOneStyle.height = `${newHeight}px`;
+        }, i * this.state.animationSpeed);
+        }
+
+        i++;
+        }
+        
+      }
+
     
+
+      
+
       changeArrayNumber = (e) =>{
         this.setState({
             arrayBars: e.target.value
@@ -124,6 +171,9 @@ class AlgorithmsVisualizer extends PureComponent{
 
 
     render(){
+        
+        
+
        
         const width = (this.state.visualizerWidth-40)/this.state.arrayBars - 5;
         let arrayVisualization = <p className="blue">Too much elements. Try decreasing the number of elements.</p>
@@ -162,26 +212,13 @@ class AlgorithmsVisualizer extends PureComponent{
                        </div>
                     </div>
                     <div className="col-lg-6">
-                        <button className='button'  onClick={() => this.mergeSort()}>Merge sort</button>
-                        <button className='button' onClick={() => this.mergeSort()}>Selection Sort</button>
+                        <button className='button'  onClick={() => this.mergeSort()}>Mergesort</button>
+                        <button className='button' onClick={() => this.quickSort()}>Quicksort</button>
                         <button className='button' onClick={() => this.mergeSort()}>Bubble sort</button>
                         <button className='button'  onClick={() => this.mergeSort()}>Quick sort</button>
                     </div>
                     
                 </div>
-                {/* <div>
-                <InputLabel id="demo-simple-select-label">Sorting algorithm</InputLabel>
-                    <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value=''
-                    onChange=''
-                    >
-                        <MenuItem onClick={() => this.mergeSort()} >Merge sort</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                </div> */}
 
             </div>
           );
