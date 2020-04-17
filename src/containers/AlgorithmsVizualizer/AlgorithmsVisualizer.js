@@ -26,7 +26,7 @@ class AlgorithmsVisualizer extends PureComponent{
         states: [],
         arrayBars: 50,
         visualizerWidth: 0,
-        animationSpeed: 10,
+        animationSpeed: 50,
     
     }
 
