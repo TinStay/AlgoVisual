@@ -87,28 +87,41 @@ export function getMergeSortAnimations(array) {
       items[rightIndex] = temp;
   }
   function partition(items, left, right, animations) {
-      let pivot = items[Math.floor((right + left) / 2)], //middle element
-      i = left, //left pointer
-      j = right; //right pointer
+      let pivot = items[Math.floor((right + left) / 2)]; //middle element
+      let pivotIndex = Math.floor((right + left) / 2);
+      let i = left; //left pointer
+      let j = right; //right pointer
 
-      animations.push([i, j, pivot]);
-      animations.push([i, j, pivot])
+      
 
       while (i <= j) {
+        
           while (items[i] < pivot) {
               i++;
+              
           }
           while (items[j] > pivot) {
               j--;
           }
           
+          
           if (i <= j) {
-              animations.push([i, j, pivot])
+            animations.push([i, j, pivotIndex]);
+            animations.push([i, j, pivotIndex])
+            
+              
+            animations.push([i, j, items[i],items[j], pivotIndex])
               swap(items, i, j); //swapping two elements
+              
               i++;
               j--;
+             
+              
           }
       }
+
+   
+      
       return i;
   }
   

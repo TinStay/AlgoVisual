@@ -123,28 +123,48 @@ class AlgorithmsVisualizer extends PureComponent{
         while(i < animations.length) {
 
         const j = i;
+        const animation = animations[j]
         const arrayBars = document.getElementsByClassName('array-bar');
         const isColorChange = i % 3 !== 2;
 
         if (isColorChange) {
         // Changing colors of the starting and the smallest array elements animation
-        const [barOneIdx, barTwoIdx, barThreeIdx] = animations[j];
+        const [barOneIdx, barTwoIdx] = animation;
+        
+        const barThreeIdx = animation[animation.length-1]
+        // console.log("barThreeIdx", barThreeIdx)
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
-        // const barThreeStyle = arrayBars[barThreeIdx].style;
+        const barThreeStyle = arrayBars[barThreeIdx].style;
+        
         const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
 
         setTimeout(() => {
             barOneStyle.backgroundColor = color;
             barTwoStyle.backgroundColor = color;
-            // barThreeStyle.backgroundColor = 'green';
+            if(i % 3 == 0){
+                barThreeStyle.backgroundColor = 'green';
+            }
+            
         }, i * this.state.animationSpeed);
-        } else {
+        } 
+        if(i % 3 == 2){
         setTimeout(() => {
         // Overwriting the array numbers --- sorting them
-            const [barOneIdx, newHeight] = animations[j];
+            const [barOneIdx, barTwoIdx] = animation;
+            const barOneValue = animation[2];
+            const barTwoValue = animation[3];
+
+            const barThreeIdx = animation[animation.length-1]
+                        
             const barOneStyle = arrayBars[barOneIdx].style;
-            barOneStyle.height = `${newHeight}px`;
+            barOneStyle.height = `${barTwoValue}px`;
+            
+            const barTwoStyle = arrayBars[barTwoIdx].style;
+            barTwoStyle.height = `${barOneValue}px`;
+
+            const barThreeStyle = arrayBars[barThreeIdx].style;
+            barThreeStyle.backgroundColor = PRIMARY_COLOR;
         }, i * this.state.animationSpeed);
         }
 
