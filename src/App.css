@@ -266,6 +266,7 @@ html {
       margin: 0 auto; }
       .code-container .code-section-main .code-section .languages {
         margin: 0 auto;
+        padding-top: 40px;
         width: 100%; }
         @media screen and (min-width: 969px) {
           .code-container .code-section-main .code-section .languages {
@@ -305,7 +306,7 @@ html {
     margin: 25px auto; }
     @media screen and (min-width: 1199px) {
       .code-container .explanation img {
-        max-width: 65%;
+        max-width: 60%;
         margin: 25px auto;
         max-height: 90%; } }
   .code-container .explanation-text {

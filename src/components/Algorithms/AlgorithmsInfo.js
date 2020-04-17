@@ -12,7 +12,9 @@ export const AlgoSortInfo = (props) =>{
             sortInfo = (
             <div className="explanation row">
                 <div className="col-md-6 explanation-text">
-                    <p>{sortText.mergeText}</p>
+                {sortText.mergeText.map( p =>{
+                        return <p className="info-paragraph">{p}</p>
+                    })}
                 </div>
                 <div className="col-md-6 text-center">
                     <img src={mergeSortImg} alt="mergeSortImg"/>
@@ -33,6 +35,46 @@ export const AlgoSortInfo = (props) =>{
                 </div>
                 </div> );
             break;
+        case("bubble"):
+            sortInfo = (<div className="explanation row">
+                <div className="col-md-6 explanation-text">
+                    {sortText.quickText.map( p =>{
+                        return  <p className="info-paragraph">{p}</p>
+                    })}
+                   
+                </div>
+                <div className="text-center col-md-6 ">
+                    <img src={quicksortImg} alt="mergeSortImg"/>
+                </div>
+                </div> );
+            break;
+        case("insertion"):
+            sortInfo = (<div className="explanation row">
+                <div className="col-md-6 explanation-text">
+                    {sortText.quickText.map( p =>{
+                        return  <p className="info-paragraph">{p}</p>
+                    })}
+                   
+                </div>
+                <div className="text-center col-md-6 ">
+                    <img src={quicksortImg} alt="mergeSortImg"/>
+                </div>
+                </div> );
+            break;
+        case("selection"):
+            sortInfo = (<div className="explanation row">
+                <div className="col-md-6 explanation-text">
+                    {sortText.quickText.map( p =>{
+                        return  <p className="info-paragraph">{p}</p>
+                    })}
+                   
+                </div>
+                <div className="text-center col-md-6 ">
+                    <img src={quicksortImg} alt="mergeSortImg"/>
+                </div>
+                </div> );
+            break;
+
         default:
             sortInfo = null;
     }

@@ -44,6 +44,13 @@ class CodeSection extends PureComponent{
                             <Tab eventKey="bubble" title="Bubble sort" >
                                 <AlgoSortInfo sort={this.state.sort}/>
                             </Tab>
+                            <Tab eventKey="insertion" title="Insertion sort" >
+                                <AlgoSortInfo sort={this.state.sort}/>
+                            </Tab>
+                            <Tab eventKey="selection" title="Selection sort" >
+                                <AlgoSortInfo sort={this.state.sort}/>
+                            </Tab>
+                           
                             </Tabs>
                         
                     </div>

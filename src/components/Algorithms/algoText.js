@@ -1,9 +1,19 @@
-export const mergeText = "Merge sort Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi nisi beatae fugit quae consequuntur! Neque est quae nam ratione, soluta recusandae dolore aspernatur aliquam sunt in natus quaerat. Magnam placeat esse culpa alias excepturi, quas iure porro possimus laborum quam voluptas quo quasi aliquid, praesentium, fuga laboriosam qui maxime. Eaque, quod ipsum. Architecto nostrum, cum at corporis nihil fugit eaque laboriosam quod quo, officia soluta sit porro magnam quisquam, dolorum expedita minima laborum. Culpa adipisci aliquam ex, non expedita optio perferendis reprehenderit ipsum tempore laborum libero cumque commodi incidunt fuga aspernatur quo accusamus tenetur illo? Exercitationem quae natus, a soluta, saepe, cum quidem consequuntur quo qui molestiae provident minus doloremque sequi neque. Molestiae amet nihil qui optio soluta, delectus magni modi rem excepturi, inventore veniam, nam veritatis libero nesciunt est. At nemo mollitia earum minus, rerum enim, debitis perspiciatis ducimus natus esse asperiores pariatur repellat! Atque maiores veritatis deserunt est corrupti ipsum tempore similique mollitia eaque. Velit repellat ex minus, nesciunt nihil natus, impedit sequi unde soluta minima delectus ab illum eaque! Inventore iure nostrum minus minima, ad amet delectus, commodi laboriosam repudiandae ab veniam accusamus illo quos, sunt tenetur dolore est! Tempore similique facere a id beatae ex laborum, temporibus assumenda esse itaque alias magni est veritatis fuga corporis, sit odit quis cor"
+export const mergeText = [`Merge Sort is a divide and conquer algorithm. It works by recursively breaking down a problem
+ into two or more sub-problems of the same or related type, until these become simple enough to be solved directly. The solutions
+  to the sub-problems are then combined to give a solution to the original problem. So Merge Sort first divides the array into equal halves
+   and then combines them in a sorted manner.The whole process of sorting an array of N integers can be summarized into three steps-  
+`,
+`1. Divide the array into two halves.`,
+`2. Sort the left half and the right half using the same recurring algorithm.`,
+`3. Merge the sorted halves.`, 
+`The biggest advantage of using Merge sort is that the time complexity 3 is only n*log(n) to sort an entire Array. It is a lot better than n^2 
+running time of bubble sort or insertion sort. To better understand how Merge sort divides an array look at the picture shown.`]
+
 export const quickText = [`Quick Sort is a sorting algorithm, which is commonly used in computer science. Quick Sort is a divide and conquer algorithm. It creates two empty arrays to hold elements less than the pivot value and elements greater than the pivot value, and then recursively sort the sub arrays. There are two basic operations in the algorithm, 
 swapping items in place and partitioning a section of the array.`,
 `There are different partitioning schemes like the Lomuto and Hoare scheme.
- Lomuto’s partition scheme is easy to implement as compare to Hoare scheme but we are using the Hoare scheme because 
- it is more efficient.It works by initializing two indexes that start at two ends, the two indexes move toward each 
+ Lomuto’s partition scheme is easy to implement as compare to Hoare scheme but we are using the Hoare scheme because it is more efficient.It works 
+ by initializing two indexes that start at two ends, the two indexes move toward each 
  other until an inversion is (A smaller value on left side and greater value on right side) found. When an inversion 
  is found, two values are swapped and process is repeated.`,
 `Although the worst case time complexity of QuickSort is O(n2) which is more than many other sorting algorithms like 

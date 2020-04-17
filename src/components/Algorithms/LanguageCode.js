@@ -3,9 +3,9 @@ import React from 'react';
 const LanguageCode = (props) => {
     let code= null;
         
-    switch(props.language){
-        case("js"):
-            if(props.sort==="merge"){
+    if(props.sort === 'merge'){
+        switch(props.language){
+            case("js"):
                 code = `
 1. // Split the array into halves and merge them recursively 
 2. function mergeSort (arr) {
@@ -49,11 +49,11 @@ const list = [2, 5, 1, 3, 7, 2, 3, 8, 6, 3]
 console.log(mergeSort(list)) 
 // [ 1, 2, 2, 3, 3, 3, 5, 6, 7, 8 ]
             `
-            }
+            
             break;
 
         case('python'):
-            if(props.sort==="merge")
+            
             code=`
 def mergeSort(alist):
     print("Splitting ",alist)
@@ -96,7 +96,7 @@ mergeSort(alist)
 print(alist)`
             break;
         case("c#"):
-            if(props.sort==="merge")
+            
             code=`     
 class MergeSort
 {
@@ -198,7 +198,264 @@ class MergeSort
 }
 `
         break;
+        case("c++"):
+            code=`
+// Merges two subarrays of arr[]. 
+// First subarray is arr[l..m] 
+// Second subarray is arr[m+1..r] 
+void merge(int arr[], int l, int m, int r) 
+{ 
+    int i, j, k; 
+    int n1 = m - l + 1; 
+    int n2 =  r - m; 
+    
+    /* create temp arrays */
+    int L[n1], R[n2]; 
+    
+    /* Copy data to temp arrays L[] and R[] */
+    for (i = 0; i < n1; i++) 
+        L[i] = arr[l + i]; 
+    for (j = 0; j < n2; j++) 
+        R[j] = arr[m + 1+ j]; 
+    
+    /* Merge the temp arrays back into arr[l..r]*/
+    i = 0; // Initial index of first subarray 
+    j = 0; // Initial index of second subarray 
+    k = l; // Initial index of merged subarray 
+    while (i < n1 && j < n2) 
+    { 
+        if (L[i] <= R[j]) 
+        { 
+            arr[k] = L[i]; 
+            i++; 
+        } 
+        else
+        { 
+            arr[k] = R[j]; 
+            j++; 
+        } 
+        k++; 
+    } 
+    
+    /* Copy the remaining elements of L[], if there 
+        are any */
+    while (i < n1) 
+    { 
+        arr[k] = L[i]; 
+        i++; 
+        k++; 
+    } 
+    
+    /* Copy the remaining elements of R[], if there 
+        are any */
+    while (j < n2) 
+    { 
+        arr[k] = R[j]; 
+        j++; 
+        k++; 
+    } 
+} 
+    
+/* l is for left index and r is right index of the 
+    sub-array of arr to be sorted */
+void mergeSort(int arr[], int l, int r) 
+{ 
+    if (l < r) 
+    { 
+        // Same as (l+r)/2, but avoids overflow for 
+        // large l and h 
+        int m = l+(r-l)/2; 
+    
+        // Sort first and second halves 
+        mergeSort(arr, l, m); 
+        mergeSort(arr, m+1, r); 
+    
+        merge(arr, l, m, r); 
+    } 
+} 
+    
+/* UTILITY FUNCTIONS */
+/* Function to print an array */
+void printArray(int A[], int size) 
+{ 
+    int i; 
+    for (i=0; i < size; i++) 
+        printf("%d ", A[i]); 
+    printf("\n"); 
+} 
+    
+/* Driver program to test above functions */
+int main() 
+{ 
+    int arr[] = {12, 11, 13, 5, 6, 7}; 
+    int arr_size = sizeof(arr)/sizeof(arr[0]); 
+    
+    printf("Given array is \n"); 
+    printArray(arr, arr_size); 
+    
+    mergeSort(arr, 0, arr_size - 1); 
+    
+    printf("\nSorted array is \n"); 
+    printArray(arr, arr_size); 
+    return 0; 
+} `
+        break;
+        case("java"):
+            code=`
+/* Java program for Merge Sort */
+class MergeSort 
+{ 
+    // Merges two subarrays of arr[]. 
+    // First subarray is arr[l..m] 
+    // Second subarray is arr[m+1..r] 
+    void merge(int arr[], int l, int m, int r) 
+    { 
+        // Find sizes of two subarrays to be merged 
+        int n1 = m - l + 1; 
+        int n2 = r - m; 
+    
+        /* Create temp arrays */
+        int L[] = new int [n1]; 
+        int R[] = new int [n2]; 
+    
+        /*Copy data to temp arrays*/
+        for (int i=0; i<n1; ++i) 
+            L[i] = arr[l + i]; 
+        for (int j=0; j<n2; ++j) 
+            R[j] = arr[m + 1+ j]; 
+    
+    
+        /* Merge the temp arrays */
+    
+        // Initial indexes of first and second subarrays 
+        int i = 0, j = 0; 
+    
+        // Initial index of merged subarry array 
+        int k = l; 
+        while (i < n1 && j < n2) 
+        { 
+            if (L[i] <= R[j]) 
+            { 
+                arr[k] = L[i]; 
+                i++; 
+            } 
+            else
+            { 
+                arr[k] = R[j]; 
+                j++; 
+            } 
+            k++; 
+        } 
+    
+        /* Copy remaining elements of L[] if any */
+        while (i < n1) 
+        { 
+            arr[k] = L[i]; 
+            i++; 
+            k++; 
+        } 
+    
+        /* Copy remaining elements of R[] if any */
+        while (j < n2) 
+        { 
+            arr[k] = R[j]; 
+            j++; 
+            k++; 
+        } 
+    } 
+    
+    // Main function that sorts arr[l..r] using 
+    // merge() 
+    void sort(int arr[], int l, int r) 
+    { 
+        if (l < r) 
+        { 
+            // Find the middle point 
+            int m = (l+r)/2; 
+    
+            // Sort first and second halves 
+            sort(arr, l, m); 
+            sort(arr , m+1, r); 
+    
+            // Merge the sorted halves 
+            merge(arr, l, m, r); 
+        } 
+    } 
+    
+    /* A utility function to print array of size n */
+    static void printArray(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i=0; i<n; ++i) 
+            System.out.print(arr[i] + " "); 
+        System.out.println(); 
+    } 
+    
+    // Driver method 
+    public static void main(String args[]) 
+    { 
+        int arr[] = {12, 11, 13, 5, 6, 7}; 
+    
+        System.out.println("Given Array"); 
+        printArray(arr); 
+    
+        MergeSort ob = new MergeSort(); 
+        ob.sort(arr, 0, arr.length-1); 
+    
+        System.out.println("\nSorted array"); 
+        printArray(arr); 
+    } 
+} 
+/* This code is contributed by Rajat Mishra */
+            `
+        break;
+        case("swift"):
+            code=`
+import Foundation
+ 
+func merge(left:[Int],right:[Int]) -> [Int] {
+    var mergedList = [Int]()
+    var left = left
+    var right = right
+    
+    while left.count > 0 && right.count > 0 {
+        if left.first! < right.first! {
+            mergedList.append(left.removeFirst())
+        } else {
+            mergedList.append(right.removeFirst())
+        }
     }
+ 
+    return mergedList + left + right
+}
+ 
+func mergeSort(list:[Int]) -> [Int] {
+    guard list.count > 1 else {
+        return list
+    }
+    
+    let leftList = Array(list[0..<list.count/2])
+    let rightList = Array(list[list.count/2..<list.count])
+    
+    return merge(left: mergeSort(list:leftList), right: mergeSort(list:rightList))
+}
+
+var list = [Int]()
+ 
+for _ in 0..<100 {
+    list.append(Int(arc4random_uniform(UInt32(1000))))
+}
+ 
+print(list)
+ 
+print()
+ 
+print(mergeSort(list: list))
+
+`
+        break;
+    }
+}
         
     
 
