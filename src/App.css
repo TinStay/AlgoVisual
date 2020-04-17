@@ -120,7 +120,7 @@ html {
   .scroll-to-top span {
     font-size: 2.4rem;
     font-weight: bold;
-    color: #d35400; }
+    color: #3498db; }
 
 .jumbotron {
   margin: 35px auto 40px auto;
@@ -301,16 +301,19 @@ html {
     background-color: #ecf0f1;
     border-radius: 10px;
     width: 100%;
+    padding: 10px;
     margin: 25px auto; }
     @media screen and (min-width: 1199px) {
       .code-container .explanation img {
-        width: 60%;
+        max-width: 65%;
         margin: 25px auto;
-        height: 80%; } }
+        max-height: 90%; } }
   .code-container .explanation-text {
     margin: 25px auto;
     letter-spacing: 1px;
     line-height: 1.7rem; }
+  .code-container .info-paragraph {
+    margin-bottom: 40px; }
 
 .code {
   margin: 20px auto;

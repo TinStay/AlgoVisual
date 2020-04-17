@@ -26,7 +26,7 @@ class AlgorithmsVisualizer extends PureComponent{
         states: [],
         arrayBars: 50,
         visualizerWidth: 0,
-        animationSpeed: 50,
+        animationSpeed: 100,
     
     }
 
@@ -92,8 +92,8 @@ class AlgorithmsVisualizer extends PureComponent{
         const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
 
         setTimeout(() => {
-            barOneStyle.backgroundColor = color;
-            barTwoStyle.backgroundColor = color;
+            barOneStyle.background = color;
+            barTwoStyle.background = color;
         }, i * this.state.animationSpeed);
         } else {
         setTimeout(() => {

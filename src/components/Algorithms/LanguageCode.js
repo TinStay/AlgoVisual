@@ -405,67 +405,76 @@ class Main
                     break;
             case("c++"):
                 code=`
-import java.util.Arrays;
+/* This function takes last element as pivot, places 
+the pivot element at its correct position in sorted 
+    array, and places all smaller (smaller than pivot) 
+to left of pivot and all greater elements to right 
+of pivot */
+int partition(int arr[], int low, int high) 
+{ 
+    int pivot = arr[low]; 
+    int i = low - 1, j = high + 1; 
 
-class Main
-{
-    public static void swap (int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
+    while (true) 
+    { 
+        // Find leftmost element greater than 
+        // or equal to pivot 
+        do
+        { 
+            i++; 
+        } while (arr[i] < pivot); 
 
-    // Partition using Hoare's Partitioning scheme
-    public static int Partition(int[] a, int low, int high)
-    {
-        int pivot = a[low];
-        int i = low - 1;
-        int j = high + 1;
+        // Find rightmost element smaller than 
+        // or equal to pivot 
+        do
+        { 
+            j--; 
+        } while (arr[j] > pivot); 
 
-        while (true) {
-            do {
-                i++;
-            } while (a[i] < pivot);
+        // If two pointers met. 
+        if (i >= j) 
+            return j; 
 
-            do {
-                j--;
-            } while (a[j] > pivot);
+        swap(arr[i], arr[j]); 
+    } 
+} 
 
-            if (i >= j)
-                return j;
+/* The main function that implements QuickSort 
+arr[] --> Array to be sorted, 
+low  --> Starting index, 
+high  --> Ending index */
+void quickSort(int arr[], int low, int high) 
+{ 
+    if (low < high) 
+    { 
+        /* pi is partitioning index, arr[p] is now 
+        at right place */
+        int pi = partition(arr, low, high); 
 
-            swap(a, i, j);
-        }
-    }
+        // Separately sort elements before 
+        // partition and after partition 
+        quickSort(arr, low, pi); 
+        quickSort(arr, pi + 1, high); 
+    } 
+} 
 
-    // Quicksort routine
-    public static void quickSort(int[] a, int low, int high)
-    {
-        // base condition
-        if (low >= high) {
-            return;
-        }
+/* Function to print an array */
+void printArray(int arr[], int n) 
+{ 
+    for (int i=0; i < n; i++) 
+        printf("%d ", arr[i]); 
+    printf("\n"); 
+} 
 
-        // rearrange the elements across pivot
-        int pivot = Partition(a, low, high);
-
-        // recur on sub-array containing elements less than the pivot
-        quickSort(a, low, pivot);
-
-        // recur on sub-array containing elements more than the pivot
-        quickSort(a, pivot + 1, high);
-    }
-
-    // Quick Sort using Hoare's Partitioning scheme
-    public static void main(String[] args)
-    {
-        int a[] = { 9, -3, 5, 2, 6, 8, -6, 1, 3 };
-
-        quickSort(a, 0, a.length - 1);
-
-        // print the sorted array
-        System.out.println(Arrays.toString(a));
-    }
+// Driver program to test above functions 
+int main() 
+{ 
+    int arr[] = {10, 7, 8, 9, 1, 5}; 
+    int n = sizeof(arr)/sizeof(arr[0]); 
+    quickSort(arr, 0, n-1); 
+    printf("Sorted array: \n"); 
+    printArray(arr, n); 
+    return 0; 
 }`
                     break;
             case("swift"):

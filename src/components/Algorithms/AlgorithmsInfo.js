@@ -24,7 +24,7 @@ export const AlgoSortInfo = (props) =>{
             sortInfo = (<div className="explanation row">
                 <div className="col-md-6 explanation-text">
                     {sortText.quickText.map( p =>{
-                        return  <p>{p}</p>
+                        return  <p className="info-paragraph">{p}</p>
                     })}
                    
                 </div>
