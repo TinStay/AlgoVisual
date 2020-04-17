@@ -1,7 +1,7 @@
 import React from 'react';
 import * as sortText from './algoText'
 import mergeSortImg from '../../assets/mergeImg.png';
-import quicksortImg from '../../assets/quicksortImg.png';
+import quicksortImg from '../../assets/quicksortImg2.png';
 
 export const AlgoSortInfo = (props) =>{
 
@@ -23,15 +23,10 @@ export const AlgoSortInfo = (props) =>{
         case("quick"):
             sortInfo = (<div className="explanation row">
                 <div className="col-md-6 explanation-text">
-                <p>Quick Sort is a divide and conquer algorithm. It creates two empty arrays to hold 
-                    elements less than the pivot value and elements greater than the pivot value, and then recursively sort the sub arrays.
-                     There are two basic operations in the algorithm, swapping items in place and partitioning a section of the array.</p>
-                <p>Quick Sort is a divide and conquer algorithm. It creates two empty arrays to hold 
-                    elements less than the pivot value and elements greater than the pivot value, and then recursively sort the sub arrays.
-                     There are two basic operations in the algorithm, swapping items in place and partitioning a section of the array.</p>
-                <p>Quick Sort is a divide and conquer algorithm. It creates two empty arrays to hold 
-                    elements less than the pivot value and elements greater than the pivot value, and then recursively sort the sub arrays.
-                     There are two basic operations in the algorithm, swapping items in place and partitioning a section of the array.</p>
+                    {sortText.quickText.map( p =>{
+                        return  <p>{p}</p>
+                    })}
+                   
                 </div>
                 <div className="text-center col-md-6 ">
                     <img src={quicksortImg} alt="mergeSortImg"/>

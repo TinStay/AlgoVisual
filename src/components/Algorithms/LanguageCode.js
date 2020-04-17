@@ -7,93 +7,93 @@ const LanguageCode = (props) => {
         case("js"):
             if(props.sort==="merge"){
                 code = `
-    1. // Split the array into halves and merge them recursively 
-    2. function mergeSort (arr) {
-    3. if (arr.length === 1) {
-        // return once we hit an array with a single item
-        return arr
+1. // Split the array into halves and merge them recursively 
+2. function mergeSort (arr) {
+3. if (arr.length === 1) {
+    // return once we hit an array with a single item
+    return arr
+}
+// get the middle item of the array rounded down
+const middle = Math.floor(arr.length / 2)
+const left = arr.slice(0, middle) // items on the left side 
+const right = arr.slice(middle) // items on the right side 
+
+return merge(
+    mergeSort(left),
+    mergeSort(right)
+)
+}
+
+// compare the arrays item by item
+// and return the concatenated result
+function merge (left, right) {
+let result = []
+let indexLeft = 0
+let indexRight = 0
+
+while (indexLeft < left.length && indexRight < right.length) {
+    if (left[indexLeft] < right[indexRight]) {
+    result.push(left[indexLeft])
+    indexLeft++
+    } else {
+    result.push(right[indexRight])
+    indexRight++
     }
-    // get the middle item of the array rounded down
-    const middle = Math.floor(arr.length / 2)
-    const left = arr.slice(0, middle) // items on the left side 
-    const right = arr.slice(middle) // items on the right side 
+}
 
-    return merge(
-        mergeSort(left),
-        mergeSort(right)
-    )
-    }
+return result.concat(left.slice(indexLeft))
+.concat(right.slice(indexRight))
+}
 
-    // compare the arrays item by item
-    // and return the concatenated result
-    function merge (left, right) {
-    let result = []
-    let indexLeft = 0
-    let indexRight = 0
-
-    while (indexLeft < left.length && indexRight < right.length) {
-        if (left[indexLeft] < right[indexRight]) {
-        result.push(left[indexLeft])
-        indexLeft++
-        } else {
-        result.push(right[indexRight])
-        indexRight++
-        }
-    }
-
-    return result.concat(left.slice(indexLeft))
-    .concat(right.slice(indexRight))
-    }
-
-    const list = [2, 5, 1, 3, 7, 2, 3, 8, 6, 3]
-    console.log(mergeSort(list)) 
-    // [ 1, 2, 2, 3, 3, 3, 5, 6, 7, 8 ]
-                `
+const list = [2, 5, 1, 3, 7, 2, 3, 8, 6, 3]
+console.log(mergeSort(list)) 
+// [ 1, 2, 2, 3, 3, 3, 5, 6, 7, 8 ]
+            `
             }
             break;
 
         case('python'):
             if(props.sort==="merge")
             code=`
-    def mergeSort(alist):
-        print("Splitting ",alist)
-        if len(alist)>1:
-            mid = len(alist)//2
-            lefthalf = alist[:mid]
-            righthalf = alist[mid:]
+def mergeSort(alist):
+    print("Splitting ",alist)
+    if len(alist)>1:
+        mid = len(alist)//2
+        lefthalf = alist[:mid]
+        righthalf = alist[mid:]
 
-        mergeSort(lefthalf)
-        mergeSort(righthalf)
+    mergeSort(lefthalf)
+    mergeSort(righthalf)
 
-        i=0
-        j=0
-        k=0
-        
-        while i < len(lefthalf) and j < len(righthalf):
-            if lefthalf[i] <= righthalf[j]:
-                alist[k]=lefthalf[i]
-                i=i+1
-            else:
-                alist[k]=righthalf[j]
-                j=j+1
-            k=k+1
-
-        // Appending any elements left
-        while i < len(lefthalf):
+    i=0
+    j=0
+    k=0
+    
+    while i < len(lefthalf) and j < len(righthalf):
+        if lefthalf[i] <= righthalf[j]:
             alist[k]=lefthalf[i]
             i=i+1
-            k=k+1
-
-        while j < len(righthalf):
+        else:
             alist[k]=righthalf[j]
             j=j+1
-            k=k+1
+        k=k+1
 
-    print("Merging ",alist)
+    // Appending any elements left
+    while i < len(lefthalf):
+        alist[k]=lefthalf[i]
+        i=i+1
+        k=k+1
 
-    alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-    mergeSort(alist)
-    print(alist)`
+    while j < len(righthalf):
+        alist[k]=righthalf[j]
+        j=j+1
+        k=k+1
+
+print("Merging ",alist)
+
+alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+mergeSort(alist)
+print(alist)`
             break;
         case("c#"):
             if(props.sort==="merge")
@@ -197,7 +197,7 @@ class MergeSort
     }
 }
 `
-                break;
+        break;
     }
         
     
@@ -252,45 +252,38 @@ console.log(sortedArray); //prints [2,3,5,6,7,9]`
                 break;
             case('python'):
                 code=`
-    # This function takes last element as pivot, 
-    # places the pivot element at its correct position in sorted 
-    # array, and places all smaller (smaller than pivot) 
-    # to left of pivot and all greater elements to right 
-    # of pivot 
-    def partition(arr,low,high): 
-        i = ( low-1 )         # index of smaller element 
-        pivot = arr[high]     # pivot 
-        
-        for j in range(low , high): 
-        
-            # If current element is smaller than or 
-            # equal to pivot 
-            if   arr[j] <= pivot: 
-                
-                # increment index of smaller element 
-                i = i+1 
-                arr[i],arr[j] = arr[j],arr[i] 
-        
-        arr[i+1],arr[high] = arr[high],arr[i+1] 
-        return ( i+1 ) 
-        
-    # The main function that implements QuickSort 
-    # arr[] --> Array to be sorted, 
-    # low  --> Starting index, 
-    # high  --> Ending index 
-        
-    # Function to do Quick sort 
-    def quickSort(arr,low,high): 
-        if low < high: 
-        
-            # pi is partitioning index, arr[p] is now 
-            # at right place 
-            pi = partition(arr,low,high) 
-        
-            # Separately sort elements before 
-            # partition and after partition 
-            quickSort(arr, low, pi-1) 
-            quickSort(arr, pi+1, high) `
+from random import randint
+def quicksort(array, low, high):
+    if low < high:
+        p = partition(array, low, high)
+        quicksort(array, low, p)
+        quicksort(array, p + 1, high)
+
+def partition(array, low, high):
+    pivot = array[low]
+    i=low-1
+    j=high+1
+    while 1:
+    i = i + 1
+        while array[i] < pivot:
+            i = i + 1
+        j=j-1
+        while array[j] > pivot:
+            j=j-1
+    
+        if i >= j:
+            return j
+        array[i],array[j]=array[j],array[i]
+
+
+
+
+array=[]
+for p in range(10):
+    array.append(randint(1,100))
+
+quicksort(array,0,len(array)-1)
+print array`
                 break;
             case("c#"):
                 code=`
@@ -344,11 +337,217 @@ namespace QuickSortDemo {
       }
    }
 }`
+    break;
+            case("java"):
+                code=`
+import java.util.Arrays;
+
+class Main
+{
+    public static void swap (int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    // Partition using Hoare's Partitioning scheme
+    public static int Partition(int[] a, int low, int high)
+    {
+        int pivot = a[low];
+        int i = low - 1;
+        int j = high + 1;
+
+        while (true) {
+            do {
+                i++;
+            } while (a[i] < pivot);
+
+            do {
+                j--;
+            } while (a[j] > pivot);
+
+            if (i >= j)
+                return j;
+
+            swap(a, i, j);
+        }
+    }
+
+    // Quicksort routine
+    public static void quickSort(int[] a, int low, int high)
+    {
+        // base condition
+        if (low >= high) {
+            return;
+        }
+
+        // rearrange the elements across pivot
+        int pivot = Partition(a, low, high);
+
+        // recur on sub-array containing elements less than the pivot
+        quickSort(a, low, pivot);
+
+        // recur on sub-array containing elements more than the pivot
+        quickSort(a, pivot + 1, high);
+    }
+
+    // Quick Sort using Hoare's Partitioning scheme
+    public static void main(String[] args)
+    {
+        int a[] = { 9, -3, 5, 2, 6, 8, -6, 1, 3 };
+
+        quickSort(a, 0, a.length - 1);
+
+        // print the sorted array
+        System.out.println(Arrays.toString(a));
+    }
+}`
+                    break;
+            case("c++"):
+                code=`
+import java.util.Arrays;
+
+class Main
+{
+    public static void swap (int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    // Partition using Hoare's Partitioning scheme
+    public static int Partition(int[] a, int low, int high)
+    {
+        int pivot = a[low];
+        int i = low - 1;
+        int j = high + 1;
+
+        while (true) {
+            do {
+                i++;
+            } while (a[i] < pivot);
+
+            do {
+                j--;
+            } while (a[j] > pivot);
+
+            if (i >= j)
+                return j;
+
+            swap(a, i, j);
+        }
+    }
+
+    // Quicksort routine
+    public static void quickSort(int[] a, int low, int high)
+    {
+        // base condition
+        if (low >= high) {
+            return;
+        }
+
+        // rearrange the elements across pivot
+        int pivot = Partition(a, low, high);
+
+        // recur on sub-array containing elements less than the pivot
+        quickSort(a, low, pivot);
+
+        // recur on sub-array containing elements more than the pivot
+        quickSort(a, pivot + 1, high);
+    }
+
+    // Quick Sort using Hoare's Partitioning scheme
+    public static void main(String[] args)
+    {
+        int a[] = { 9, -3, 5, 2, 6, 8, -6, 1, 3 };
+
+        quickSort(a, 0, a.length - 1);
+
+        // print the sorted array
+        System.out.println(Arrays.toString(a));
+    }
+}`
+                    break;
+            case("swift"):
+                code=`
+// partition using Hoares partition 
+func partition (_ a: inout [Int], _ start: Int, _ end: Int) -> Int {
+    // pick the last element as the picot
+    let pivot = a[start]
+    var i = start - 1
+    var j = end + 1
+    // loop forever
+    while true {
+        // decrement the pointer from the end, when the elements are larger
+        repeat { j -= 1 } while a[j] > pivot
+        // increment the pointer from the beginning, when the elements are smaller
+        repeat { i += 1 } while a[i] < pivot
+        // if there is an inversion, swap the two
+        if i < j {
+            a.swapAt(i, j)
+        } else {
+            // indicies have met, so return the final index
+            return j
+        }
+    }
+}
+
+func sort (_ array: inout [Int]) {
+    // Stack of start and end index
+    var stack = [(Int,Int)]()
+    // the initial start and end index - the whole range
+    stack.append((0, array.count - 1))
+    while (!stack.isEmpty) {
+        let startEnd = stack.popLast()!
+        let start = startEnd.0
+        let end = startEnd.1
+        // partition sorts the array around the midpoint
+        let pivot = partition(&array, start, end)
+        // append the first half of the array to the stack
+        if (pivot > start) {
+            stack.append((start, pivot))
+        }
+        // append the second half of the array to the stack
+        if (pivot + 1 < end) {
+            stack.append((pivot + 1, end))
+        }
+    }
+}`
                     break;
         }
         
     }
 
+    if(props.sort ==="bubble"){
+        
+        switch(props.language){
+            case("js"):
+                code = `Bubble sort JS code`
+                break;
+            case('python'):
+                code="Bubble sort PYTHON code"
+                break;
+            case("c#"):
+                code="Bubble sort C# code"
+                    break;
+        }
+        
+    }
+    if(props.sort ==="bubble"){
+        
+        switch(props.language){
+            case("js"):
+                code = `Bubble sort JS code`
+                break;
+            case('python'):
+                code="Bubble sort PYTHON code"
+                break;
+            case("c#"):
+                code="Bubble sort C# code"
+                    break;
+        }
+        
+    }
     if(props.sort ==="bubble"){
         
         switch(props.language){
