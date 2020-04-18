@@ -13,8 +13,6 @@ function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-
-
 const PRIMARY_COLOR = '#6a89cc';
 
 const SECONDARY_COLOR = '#e74c3c';
@@ -26,7 +24,7 @@ class AlgorithmsVisualizer extends PureComponent{
         states: [],
         arrayBars: 50,
         visualizerWidth: 0,
-        animationSpeed: 100,
+        animationSpeed: 10,
     
     }
 
