@@ -7,9 +7,9 @@ const LanguageCode = (props) => {
         switch(props.language){
             case("js"):
                 code = `
-1. // Split the array into halves and merge them recursively 
-2. function mergeSort (arr) {
-3. if (arr.length === 1) {
+// Split the array into halves and merge them recursively 
+function mergeSort (arr) {
+if (arr.length === 1) {
     // return once we hit an array with a single item
     return arr
 }
@@ -788,18 +788,247 @@ func sort (_ array: inout [Int]) {
         
         switch(props.language){
             case("js"):
-                code = `Bubble sort JS code`
+                code = `
+// HTML file
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bubble Sort</title>
+</head>
+<body>
+
+</body>
+</html>
+
+
+// JS file
+function bubble_Sort(a){
+    let swap;
+    let n = a.length-1;
+    let x=a;
+    do {
+        swap = false;
+        for (let i=0; i < n; i++)
+        {
+            if (x[i] < x[i+1])
+            {
+               let temp = x[i];
+               x[i] = x[i+1];
+               x[i+1] = temp;
+               swap = true;
+            }
+        }
+        n--;
+    } while (swap);
+ return x; 
+}
+
+console.log(bubble_Sort([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]));`
                 break;
             case('python'):
-                code="Bubble sort PYTHON code"
+                code=`
+# Python program for implementation of Bubble Sort 
+  
+def bubbleSort(arr): 
+    n = len(arr) 
+  
+    # Traverse through all array elements 
+    for i in range(n): 
+  
+        # Last i elements are already in place 
+        for j in range(0, n-i-1): 
+  
+            # traverse the array from 0 to n-i-1 
+            # Swap if the element found is greater 
+            # than the next element 
+            if arr[j] > arr[j+1] : 
+                arr[j], arr[j+1] = arr[j+1], arr[j] 
+  
+# Driver code to test above 
+arr = [64, 34, 25, 12, 22, 11, 90] 
+  
+bubbleSort(arr) 
+  
+print ("Sorted array is:") 
+for i in range(len(arr)): 
+    print ("%d" %arr[i]),  
+`
                 break;
             case("c#"):
-                code="Bubble sort C# code"
-                    break;
+                code=`
+// C# program for implementation  
+// of Bubble Sort 
+using System; 
+    
+class GFG 
+{  
+    static void bubbleSort(int []arr) 
+    { 
+        int n = arr.Length; 
+        for (int i = 0; i < n - 1; i++) 
+            for (int j = 0; j < n - i - 1; j++) 
+                if (arr[j] > arr[j + 1]) 
+                { 
+                    // swap temp and arr[i] 
+                    int temp = arr[j]; 
+                    arr[j] = arr[j + 1]; 
+                    arr[j + 1] = temp; 
+                } 
+    } 
+    
+    /* Prints the array */
+    static void printArray(int []arr) 
+    { 
+        int n = arr.Length; 
+        for (int i = 0; i < n; ++i) 
+            Console.Write(arr[i] + " "); 
+        Console.WriteLine(); 
+    } 
+    
+    // Driver method 
+    public static void Main() 
+    { 
+        int []arr = {64, 34, 25, 12, 22, 11, 90}; 
+        bubbleSort(arr); 
+        Console.WriteLine("Sorted array"); 
+        printArray(arr); 
+    } 
+    
+} 
+    
+// This code is contributed by Sam007 
+`
+                break;
+            case("java"):
+                code=`
+// Java program for implementation of Bubble Sort 
+class BubbleSort 
+{ 
+    void bubbleSort(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i = 0; i < n-1; i++) 
+            for (int j = 0; j < n-i-1; j++) 
+                if (arr[j] > arr[j+1]) 
+                { 
+                    // swap arr[j+1] and arr[i] 
+                    int temp = arr[j]; 
+                    arr[j] = arr[j+1]; 
+                    arr[j+1] = temp; 
+                } 
+    } 
+    
+    /* Prints the array */
+    void printArray(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i=0; i<n; ++i) 
+            System.out.print(arr[i] + " "); 
+        System.out.println(); 
+    } 
+    
+    // Driver method to test above 
+    public static void main(String args[]) 
+    { 
+        BubbleSort ob = new BubbleSort(); 
+        int arr[] = {64, 34, 25, 12, 22, 11, 90}; 
+        ob.bubbleSort(arr); 
+        System.out.println("Sorted array"); 
+        ob.printArray(arr); 
+    } 
+} 
+/* This code is contributed by Rajat Mishra */
+`
+                break;
+            case("c++"):
+                code=`
+// C++ program for implementation of Bubble sort  
+#include <bits/stdc++.h> 
+using namespace std; 
+    
+void swap(int *xp, int *yp)  
+{  
+    int temp = *xp;  
+    *xp = *yp;  
+    *yp = temp;  
+}  
+    
+// A function to implement bubble sort  
+void bubbleSort(int arr[], int n)  
+{  
+    int i, j;  
+    for (i = 0; i < n-1; i++)      
+        
+    // Last i elements are already in place  
+    for (j = 0; j < n-i-1; j++)  
+        if (arr[j] > arr[j+1])  
+            swap(&arr[j], &arr[j+1]);  
+}  
+    
+/* Function to print an array */
+void printArray(int arr[], int size)  
+{  
+    int i;  
+    for (i = 0; i < size; i++)  
+        cout << arr[i] << " ";  
+    cout << endl;  
+}  
+    
+// Driver code  
+int main()  
+{  
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};  
+    int n = sizeof(arr)/sizeof(arr[0]);  
+    bubbleSort(arr, n);  
+    cout<<"Sorted array: \n";  
+    printArray(arr, n);  
+    return 0;  
+}  
+    
+// This code is contributed by rathbhupendra 
+`
+                break;
+            case("swift"):
+                code=`
+// An Example of a bubble sort algorithm in Swift
+//
+// Essentialy this algorithm will loop through the values up to
+// the index where we last did a sort (everything above is already in order/sorted)
+// comparing a one value to the value before it. If the value before it is higher,
+// swap them, and note the highest swap index. On the next iteration of the loop we
+// only need to go as high as the previous swap.
+import Foundation
+
+var array = [5,3,4,6,8,2,9,1,7,10,11]
+var sortedArray = NSMutableArray(array: array)
+
+var sortedAboveIndex = array.count // Assume all values are not in order
+do {
+    var lastSwapIndex = 0
+    for ( var i = 1; i < sortedAboveIndex; i++ ) {
+        if (sortedArray[i - 1].integerValue > sortedArray[i].integerValue) {
+            sortedArray.exchangeObjectAtIndex(i, withObjectAtIndex: i-1)
+            lastSwapIndex = i
+        }
+    }
+    sortedAboveIndex = lastSwapIndex
+
+} while (sortedAboveIndex != 0)
+
+
+// [5, 3, 4, 6, 8, 2, 9, 1, 7, 10, 11]
+println(array)
+
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+println(sortedArray as Array)
+`
+                break;
         }
         
     }
-    if(props.sort ==="bubble"){
+
+    if(props.sort ==="insertion"){
         
         switch(props.language){
             case("js"):
@@ -811,10 +1040,10 @@ func sort (_ array: inout [Int]) {
             case("c#"):
                 code="Bubble sort C# code"
                     break;
-        }
-        
+        }   
     }
-    if(props.sort ==="bubble"){
+
+    if(props.sort ==="selection"){
         
         switch(props.language){
             case("js"):

@@ -155,7 +155,7 @@ function bubbleSort(array, animations){
         animations.push([i, i+1]);
         animations.push([i, i+1]);
         animations.push([i, i+1, array[i], array[i+1]]);
-        
+
         swap(array, i, i+1);
         isSorted = false;
       };
@@ -176,4 +176,47 @@ export function getBubblesortAnimations(array){
   
   return animations;
 }
+
+
+function insertionSort(arr, animations){
+  for(let i = 1; i < arr.length; i++){
+    let curr = arr[i];
+    let j = i-1;
+
+    
+    while(j >= 0 && arr[j] > curr){
+      // Change colors and height of the compared elements
+      animations.push([j + 1, j]);
+      animations.push([j + 1, j]);
+      animations.push([j + 1, arr[j]]);
+      
+      arr[j + 1] = arr[j]
+      
+      j--;
+    }
+
+    // Change colors and height of the compared elements
+    animations.push([j + 1, i]);
+    animations.push([j + 1, i]);
+    animations.push([j + 1, curr]);
+
+    arr[j + 1] = curr;
+   
+  }
+
+  // return arr;  
+}
+
+
+export const getInsertionSortAnimations = (array) => {
+  let animations = [];
+  if (array.length <= 1) return array;
+  
+  insertionSort(array, animations);
+  
+  return animations;
+}
+
+// let sortedArr = insertionSort(items);
+// console.log("Sorted via insertionSort", sortedArr) 
  

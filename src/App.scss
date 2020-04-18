@@ -455,27 +455,44 @@ box-shadow: 0px 0px 15px 14px rgba(60,99,130,0.48);
     }
 
     .explanation{
+        margin: auto ;
+
         
 
-        img{
+        .normalImg{
             text-align: center;
             background-color: #ecf0f1;
             border-radius: 10px;
             width: 100%;
             padding: 10px;
-            margin: 25px auto;
+            margin: 25px auto 0 auto;
 
             @media screen  and (min-width: 1199px){
                 max-width: 60%;
                 margin: 25px auto;
-                max-height: 90%;
+                max-height: inherit;
+            }
+        }
+        .tallImg{
+            text-align: center;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            width: 100%;
+            padding: 10px;
+            margin: 25px auto 0 auto;
+
+            @media screen  and (min-width: 1199px){
+                max-width: inherit;
+                margin: 25px auto;
+                max-height: inherit;
             }
         }
         
     }
 
     .explanation-text{
-        margin: 25px auto;
+        margin: 25px auto 0 auto;
+
         letter-spacing: 1px;
         line-height: 1.7rem;
     }

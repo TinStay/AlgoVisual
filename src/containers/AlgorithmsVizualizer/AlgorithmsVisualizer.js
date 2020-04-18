@@ -225,6 +225,48 @@ class AlgorithmsVisualizer extends PureComponent{
         i++;
         }
 
+      }
+
+
+      insertionSort() {
+
+        const animations = algorithms.getInsertionSortAnimations(this.state.array);
+
+        let i = 0;
+        while(i < animations.length) {
+
+        const j = i;
+        const animation = animations[j]
+        const arrayBars = document.getElementsByClassName('array-bar');
+        const isColorChange = i % 3 !== 2;
+
+        if (isColorChange) {
+        // Change color of the elements that are compared
+        const [barOneIdx, barTwoIdx] = animations[j];
+        console.log(barOneIdx, barTwoIdx)
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+
+        setTimeout(() => {
+            barOneStyle.background = color;
+            barTwoStyle.background = color;
+        }, i * this.state.animationSpeed);
+        } else {
+        setTimeout(() => {
+        // Change height of the smaller element
+            const [barOneIdx, height] = animation;
+           
+            const barOneStyle = arrayBars[barOneIdx].style;
+            barOneStyle.height = `${height}px`;
+
+
+        }, i * this.state.animationSpeed);
+        }
+
+        i++;
+        }
+
         
 
         // await setTimeout(() =>{
@@ -290,7 +332,7 @@ class AlgorithmsVisualizer extends PureComponent{
                         <button className='button'  onClick={() => this.mergeSort()}>Mergesort</button>
                         <button className='button' onClick={() => this.quickSort()}>Quicksort</button>
                         <button className='button' onClick={() => this.bubbleSort()}>Bubble sort</button>
-                        <button className='button'  onClick={() => this.mergeSort()}>Quick sort</button>
+                        <button className='button'  onClick={() => this.insertionSort()}>Insertion sort</button>
                     </div>
                     
                 </div>

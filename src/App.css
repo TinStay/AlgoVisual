@@ -297,20 +297,34 @@ html {
               border: none; }
           .code-container .code-section-main .code-section .sorts .list-group-item.active {
             background-color: #1abc9c; }
-  .code-container .explanation img {
-    text-align: center;
-    background-color: #ecf0f1;
-    border-radius: 10px;
-    width: 100%;
-    padding: 10px;
-    margin: 25px auto; }
-    @media screen and (min-width: 1199px) {
-      .code-container .explanation img {
-        max-width: 60%;
-        margin: 25px auto;
-        max-height: 90%; } }
+  .code-container .explanation {
+    margin: auto; }
+    .code-container .explanation .normalImg {
+      text-align: center;
+      background-color: #ecf0f1;
+      border-radius: 10px;
+      width: 100%;
+      padding: 10px;
+      margin: 25px auto 0 auto; }
+      @media screen and (min-width: 1199px) {
+        .code-container .explanation .normalImg {
+          max-width: 60%;
+          margin: 25px auto;
+          max-height: inherit; } }
+    .code-container .explanation .tallImg {
+      text-align: center;
+      background-color: #ecf0f1;
+      border-radius: 10px;
+      width: 100%;
+      padding: 10px;
+      margin: 25px auto 0 auto; }
+      @media screen and (min-width: 1199px) {
+        .code-container .explanation .tallImg {
+          max-width: inherit;
+          margin: 25px auto;
+          max-height: inherit; } }
   .code-container .explanation-text {
-    margin: 25px auto;
+    margin: 25px auto 0 auto;
     letter-spacing: 1px;
     line-height: 1.7rem; }
   .code-container .info-paragraph {

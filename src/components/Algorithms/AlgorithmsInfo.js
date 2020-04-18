@@ -1,7 +1,8 @@
 import React from 'react';
 import * as sortText from './algoText'
-import mergeSortImg from '../../assets/mergeImg.png';
+import mergeSortImg from '../../assets/mergesortImg.png';
 import quicksortImg from '../../assets/quicksortImg2.png';
+import bubblesortImg from '../../assets/bubblesortImg.png';
 
 export const AlgoSortInfo = (props) =>{
 
@@ -9,6 +10,7 @@ export const AlgoSortInfo = (props) =>{
 
     switch(props.sort){
         case("merge"):
+
             sortInfo = (
             <div className="explanation row">
                 <div className="col-md-6 explanation-text">
@@ -17,13 +19,14 @@ export const AlgoSortInfo = (props) =>{
                     })}
                 </div>
                 <div className="col-md-6 text-center">
-                    <img src={mergeSortImg} alt="mergeSortImg"/>
+                    <img className="normalImg" src={mergeSortImg} alt="mergeSortImg"/>
                 </div>
             </div> );
             break;
         
         case("quick"):
-            sortInfo = (<div className="explanation row">
+
+            sortInfo = (<div className="explanation d-md-flex">
                 <div className="col-md-6 explanation-text">
                     {sortText.quickText.map( p =>{
                         return  <p className="info-paragraph">{p}</p>
@@ -31,24 +34,28 @@ export const AlgoSortInfo = (props) =>{
                    
                 </div>
                 <div className="text-center col-md-6 ">
-                    <img src={quicksortImg} alt="mergeSortImg"/>
+                    <img className="tallImg" src={quicksortImg} alt="quicksortImg"/>
                 </div>
-                </div> );
+                </div>);
             break;
+
         case("bubble"):
+
             sortInfo = (<div className="explanation row">
                 <div className="col-md-6 explanation-text">
-                    {sortText.quickText.map( p =>{
+                    {sortText.bubbleText.map( p =>{
                         return  <p className="info-paragraph">{p}</p>
                     })}
                    
                 </div>
                 <div className="text-center col-md-6 ">
-                    <img src={quicksortImg} alt="mergeSortImg"/>
+                    <img className="tallImg" src={bubblesortImg} alt="bubblesortImg"/>
                 </div>
                 </div> );
             break;
+
         case("insertion"):
+
             sortInfo = (<div className="explanation row">
                 <div className="col-md-6 explanation-text">
                     {sortText.quickText.map( p =>{
@@ -57,11 +64,13 @@ export const AlgoSortInfo = (props) =>{
                    
                 </div>
                 <div className="text-center col-md-6 ">
-                    <img src={quicksortImg} alt="mergeSortImg"/>
+                    <img className="" src={quicksortImg} alt="mergeSortImg"/>
                 </div>
                 </div> );
             break;
+
         case("selection"):
+        
             sortInfo = (<div className="explanation row">
                 <div className="col-md-6 explanation-text">
                     {sortText.quickText.map( p =>{
@@ -70,7 +79,7 @@ export const AlgoSortInfo = (props) =>{
                    
                 </div>
                 <div className="text-center col-md-6 ">
-                    <img src={quicksortImg} alt="mergeSortImg"/>
+                    <img className="" src={quicksortImg} alt="mergeSortImg"/>
                 </div>
                 </div> );
             break;
