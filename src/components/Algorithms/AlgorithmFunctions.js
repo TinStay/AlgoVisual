@@ -79,137 +79,101 @@ export function getMergeSortAnimations(array) {
 
 
 
-  let items = [5,3,7,6,2,9];
+let items = [5,3,7,6,2,9,23,12,92,52];
 
-  function swap(items, leftIndex, rightIndex){
-      let temp = items[leftIndex];
-      items[leftIndex] = items[rightIndex];
-      items[rightIndex] = temp;
-  }
-  function partition(items, left, right, animations) {
-      let pivot = items[Math.floor((right + left) / 2)]; //middle element
-      let pivotIndex = Math.floor((right + left) / 2);
-      let i = left; //left pointer
-      let j = right; //right pointer
+function swap(items, leftIndex, rightIndex){
+    let temp = items[leftIndex];
+    items[leftIndex] = items[rightIndex];
+    items[rightIndex] = temp;
+}
+function partition(items, left, right, animations) {
+    let pivot = items[Math.floor((right + left) / 2)]; //middle element
+    let pivotIndex = Math.floor((right + left) / 2);
+    let i = left; //left pointer
+    let j = right; //right pointer 
 
-      
+    while (i <= j) {
+        while (items[i] < pivot) {
+            i++;       
+        }
+        while (items[j] > pivot) {
+            j--;
+        }
 
-      while (i <= j) {
-        
-          while (items[i] < pivot) {
-              i++;
-              
-          }
-          while (items[j] > pivot) {
-              j--;
-          }
+        if (i <= j) {
+          animations.push([i, j, pivotIndex]);
+          animations.push([i, j, pivotIndex])
           
-          
-          if (i <= j) {
-            animations.push([i, j, pivotIndex]);
-            animations.push([i, j, pivotIndex])
             
-              
-            animations.push([i, j, items[i],items[j], pivotIndex])
-              swap(items, i, j); //swapping two elements
-              
-              i++;
-              j--;
-             
-              
-          }
-      }
+          animations.push([i, j, items[i],items[j], pivotIndex])
+            swap(items, i, j); //swapping two elements            
+            i++;
+            j--;
+        
+        }
+    }  
+    return i;
+}
+  
+function quickSort(items, left, right, animations) {
+    let index;
+    if (items.length > 1) {
+        index = partition(items, left, right, animations); //index returned from partition
+        if (left < index - 1) { //more elements on the left side of the pivot
+            quickSort(items, left, index - 1, animations);
+        }
+        if (index < right) { //more elements on the right side of the pivot
+            quickSort(items, index, right, animations);
+        }
+    }
+    return items;
+}
 
-   
+export function getQuicksortAnimations(array){
+  let animations = [];
+  if (array.length <= 1) return array;
+  
+  quickSort(array, 0, array.length - 1, animations);
+  
+  return animations;
+}
+
+
+
+function bubbleSort(array, animations){
+  let isSorted = false;
+  let end = array.length-1
+  
+
+  while(isSorted === false){
+    isSorted = true;
+    for(let i = 0; i < end; i++){
       
-      return i;
-  }
+
+      if(array[i] > array[i+1]){
+        // Change color on elements that are being compared
+        animations.push([i, i+1]);
+        animations.push([i, i+1]);
+        animations.push([i, i+1, array[i], array[i+1]]);
+        
+        swap(array, i, i+1);
+        isSorted = false;
+      };
+    };
+    end--;
+}
+};
+
+// bubbleSort(items, 0);
+// console.log("Sorted items: ", items)
+
+
+export function getBubblesortAnimations(array){
+  let animations = [];
+  if (array.length <= 1) return array;
   
-  export function quickSort(items, left, right, animations) {
-      let index;
-      if (items.length > 1) {
-          index = partition(items, left, right, animations); //index returned from partition
-          if (left < index - 1) { //more elements on the left side of the pivot
-              quickSort(items, left, index - 1, animations);
-          }
-          if (index < right) { //more elements on the right side of the pivot
-              quickSort(items, index, right, animations);
-          }
-      }
-      return items;
-  }
-
-  export function getQuicksortAnimations(array){
-    let animations = [];
-    if (array.length <= 1) return array;
-    
-    quickSort(array, 0, array.length - 1, animations);
-   
-    return animations;
-  }
-  // // first call to quick sort
-  // let sortedArray = quickSort(items, 0, items.length - 1);
-  // console.log('sorted',sortedArray); //prints [2,3,5,6,7,9]
-
-
-
-
-
-
-
+  bubbleSort(array, animations);
   
-// function swap(arr, a, b){
-//   let temp = arr[a];
-//   arr[a] = arr[b];
-//   arr[b] = temp; 
-  
-// }
-
-//  function partition(arr, start, end){
-  
-//   let pivotValue = arr[Math.floor((start + end) / 2)];
-//   let i = start;
-//   let j = end;
-
-//   if(i <= j){
-//     while(arr[i] < pivotValue){
-//       i++;
-//     }
-//     while(arr[j] > pivotValue){
-//       j--;
-//     }
-
-//     if(i <= j){
-//       swap(arr, i, j);
-//       i++;
-//       j--;
-//     }    
-//   }
-//   return i;
-// }
-
-// export  function quickSort(arr, start, end){
-//   console.log("Recursive function")
-//   let pi;
-//   if(arr.length > 1){
-//     pi = partition(arr, start, end);
-
-//     if(start < pi- 1){
-//       quickSort(arr, start, pi - 1);
-//     }
-//     if(pi < end){
-//       quickSort(arr, pi, end);
-//     }
-  
-    
-  
-//   }
-//   return arr;
-  
-
-// }
-// let arr = [1, 4, 5,3,7,6,2,9,4, 7];
-
-// let sortedArr= quickSort(arr, 0, arr.length-1);
-// console.log("Sorted", sortedArr); 
-
+  return animations;
+}
+ 

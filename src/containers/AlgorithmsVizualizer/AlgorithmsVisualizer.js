@@ -123,7 +123,14 @@ class AlgorithmsVisualizer extends PureComponent{
         while(i < animations.length) {
 
         const j = i;
+        let nextAnimation;
         const animation = animations[j]
+
+        if(animations[j+1] !== undefined){
+            nextAnimation = animations[j+1]
+        }else{
+            nextAnimation = null;
+        }
         const arrayBars = document.getElementsByClassName('array-bar');
         const isColorChange = i % 3 !== 2;
 
@@ -163,8 +170,10 @@ class AlgorithmsVisualizer extends PureComponent{
             const barTwoStyle = arrayBars[barTwoIdx].style;
             barTwoStyle.height = `${barOneValue}px`;
 
-            const barThreeStyle = arrayBars[barThreeIdx].style;
-            barThreeStyle.backgroundColor = PRIMARY_COLOR;
+            if((nextAnimation !== null && nextAnimation[nextAnimation.length-1] !== animation[animation.length-1]) || nextAnimation == null){
+                const barThreeStyle = arrayBars[barThreeIdx].style;
+                barThreeStyle.backgroundColor = PRIMARY_COLOR;
+            }
         }, i * this.state.animationSpeed);
         }
 
@@ -173,9 +182,55 @@ class AlgorithmsVisualizer extends PureComponent{
         
       }
 
-    
+      async bubbleSort() {
 
-      
+        const animations = algorithms.getBubblesortAnimations(this.state.array);
+
+        let i = 0;
+        while(i < animations.length) {
+
+        const j = i;
+        const animation = animations[j]
+        const arrayBars = document.getElementsByClassName('array-bar');
+        const isColorChange = i % 3 !== 2;
+
+        if (isColorChange) {
+        // Changing colors of the starting and the smallest array elements animation
+        const [barOneIdx, barTwoIdx] = animations[j];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+
+        setTimeout(() => {
+            barOneStyle.background = color;
+            barTwoStyle.background = color;
+        }, i * this.state.animationSpeed);
+        } else {
+        setTimeout(() => {
+        // Swapping the elements(overwriting their height)
+            const [barOneIdx, barTwoIdx] = animation;
+            const barOneValue = animation[2];
+            const barTwoValue = animation[3];
+
+                        
+            const barOneStyle = arrayBars[barOneIdx].style;
+            barOneStyle.height = `${barTwoValue}px`;
+            
+            const barTwoStyle = arrayBars[barTwoIdx].style;
+            barTwoStyle.height = `${barOneValue}px`;
+
+        }, i * this.state.animationSpeed);
+        }
+
+        i++;
+        }
+
+        
+
+        // await setTimeout(() =>{
+        //     this.setState({disabled: false});
+        // }, i * this.state.animationSpeed);
+      }
 
       changeArrayNumber = (e) =>{
         this.setState({
@@ -234,7 +289,7 @@ class AlgorithmsVisualizer extends PureComponent{
                     <div className="col-lg-6">
                         <button className='button'  onClick={() => this.mergeSort()}>Mergesort</button>
                         <button className='button' onClick={() => this.quickSort()}>Quicksort</button>
-                        <button className='button' onClick={() => this.mergeSort()}>Bubble sort</button>
+                        <button className='button' onClick={() => this.bubbleSort()}>Bubble sort</button>
                         <button className='button'  onClick={() => this.mergeSort()}>Quick sort</button>
                     </div>
                     
