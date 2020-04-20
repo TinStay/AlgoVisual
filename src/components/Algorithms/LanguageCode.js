@@ -1027,23 +1027,477 @@ println(sortedArray as Array)
         }
         
     }
-
     if(props.sort ==="insertion"){
-        
         switch(props.language){
             case("js"):
-                code = `Bubble sort JS code`
+                code = `
+// HTML
+
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <title>JavaScript program of Insertion sort</title>
+  </head>
+  <body></body>
+</html>
+
+// Javascript
+
+const insertion_Sort = (nums) => {
+    for (let i = 1; i < nums.length; i++) {
+      let j = i - 1
+      let temp = nums[i]
+      while (j >= 0 && nums[j] > temp) {
+        nums[j + 1] = nums[j]
+        j--
+      }
+      nums[j+1] = temp
+    }
+    return nums
+  }
+  console.log(insertion_Sort([3, 0, 2, 5, -1, 4, 1]));
+  console.log(insertion_Sort([2,6,5,12,-1,3,8,7,1,-4,0,23,1,-55,20,37,54,210,-23,7,483,9339,29,-3,90,-2,81,54,7372,-92,93,93,18,-43,21]));`
                 break;
             case('python'):
-                code="Bubble sort PYTHON code"
+                code=`         
+# Python program for implementation of Insertion Sort 
+  
+# Function to do insertion sort 
+def insertionSort(arr): 
+  
+    # Traverse through 1 to len(arr) 
+    for i in range(1, len(arr)): 
+  
+        key = arr[i] 
+  
+        # Move elements of arr[0..i-1], that are 
+        # greater than key, to one position ahead 
+        # of their current position 
+        j = i-1
+        while j >= 0 and key < arr[j] : 
+                arr[j + 1] = arr[j] 
+                j -= 1
+        arr[j + 1] = key 
+  
+  
+# Driver code to test above 
+arr = [12, 11, 13, 5, 6] 
+insertionSort(arr) 
+for i in range(len(arr)): 
+    print ("% d" % arr[i]) 
+  
+# This code is contributed by Mohit Kumra 
+`
                 break;
             case("c#"):
-                code="Bubble sort C# code"
-                    break;
+                code=`             
+// C# program for implementation of Insertion Sort 
+using System; 
+  
+class InsertionSort { 
+  
+    // Function to sort array 
+    // using insertion sort 
+    void sort(int[] arr) 
+    { 
+        int n = arr.Length; 
+        for (int i = 1; i < n; ++i) { 
+            int key = arr[i]; 
+            int j = i - 1; 
+  
+            // Move elements of arr[0..i-1], 
+            // that are greater than key, 
+            // to one position ahead of 
+            // their current position 
+            while (j >= 0 && arr[j] > key) { 
+                arr[j + 1] = arr[j]; 
+                j = j - 1; 
+            } 
+            arr[j + 1] = key; 
+        } 
+    } 
+  
+    // A utility function to print 
+    // array of size n 
+    static void printArray(int[] arr) 
+    { 
+        int n = arr.Length; 
+        for (int i = 0; i < n; ++i) 
+            Console.Write(arr[i] + " "); 
+  
+        Console.Write("\n"); 
+    } 
+  
+    // Driver Code 
+    public static void Main() 
+    { 
+        int[] arr = { 12, 11, 13, 5, 6 }; 
+        InsertionSort ob = new InsertionSort(); 
+        ob.sort(arr); 
+        printArray(arr); 
+    } 
+} 
+  
+// This code is contributed by ChitraNayal. 
+`
+                break;
+            case("java"):
+                code=`               
+// Java program for implementation of Insertion Sort 
+class InsertionSort { 
+    /*Function to sort array using insertion sort*/
+    void sort(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i = 1; i < n; ++i) { 
+            int key = arr[i]; 
+            int j = i - 1; 
+  
+            /* Move elements of arr[0..i-1], that are 
+               greater than key, to one position ahead 
+               of their current position */
+            while (j >= 0 && arr[j] > key) { 
+                arr[j + 1] = arr[j]; 
+                j = j - 1; 
+            } 
+            arr[j + 1] = key; 
+        } 
+    } 
+  
+    /* A utility function to print array of size n*/
+    static void printArray(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i = 0; i < n; ++i) 
+            System.out.print(arr[i] + " "); 
+  
+        System.out.println(); 
+    } 
+  
+    // Driver method 
+    public static void main(String args[]) 
+    { 
+        int arr[] = { 12, 11, 13, 5, 6 }; 
+  
+        InsertionSort ob = new InsertionSort(); 
+        ob.sort(arr); 
+  
+        printArray(arr); 
+    } 
+} /* This code is contributed by Rajat Mishra. */
+`
+                break;
+            case("c++"):
+                code=`          
+// C++ program for insertion sort  
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+/* Function to sort an array using insertion sort*/
+void insertionSort(int arr[], int n)  
+{  
+    int i, key, j;  
+    for (i = 1; i < n; i++) 
+    {  
+        key = arr[i];  
+        j = i - 1;  
+  
+        /* Move elements of arr[0..i-1], that are  
+        greater than key, to one position ahead  
+        of their current position */
+        while (j >= 0 && arr[j] > key) 
+        {  
+            arr[j + 1] = arr[j];  
+            j = j - 1;  
+        }  
+        arr[j + 1] = key;  
+    }  
+}  
+  
+// A utility function to print an array of size n  
+void printArray(int arr[], int n)  
+{  
+    int i;  
+    for (i = 0; i < n; i++)  
+        cout << arr[i] << " ";  
+    cout << endl; 
+}  
+  
+/* Driver code */
+int main()  
+{  
+    int arr[] = { 12, 11, 13, 5, 6 };  
+    int n = sizeof(arr) / sizeof(arr[0]);  
+  
+    insertionSort(arr, n);  
+    printArray(arr, n);  
+  
+    return 0;  
+}  
+  
+// This is code is contributed by rathbhupendra 
+`
+                break;
+            case("swift"):
+                code=`
+var numbers = [70, 36, 40, 95, 22, 55, 26]
+
+for index in 1..<numbers.count
+{
+    let value = numbers[index]
+    var position = index
+
+    while position > 0 && numbers[position - 1] > value {
+        numbers[position] = numbers[position - 1]
+        position -= 1
+    }
+
+    numbers[position] = value
+}
+
+print(numbers)`
+                break;
         }   
     }
 
     if(props.sort ==="selection"){
+        switch(props.language){
+            case("js"):
+                code = `
+let selectionSort = (arr) => {
+    let len = arr.length;
+    for (let i = 0; i < len; i++) {
+        let min = i;
+        for (let j = i + 1; j < len; j++) {
+            if (arr[min] > arr[j]) {
+                min = j;
+            }
+        }
+        if (min !== i) {
+            let tmp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = tmp;
+        }
+    }
+    return arr;
+}
+
+let array = [2, 5, 1, 7, 23, 12, 86, 26, 102]
+console.log(selectionSort(array))
+`
+                break;
+            case('python'):
+                code=`
+# Python program for implementation of Selection 
+# Sort 
+import sys 
+A = [64, 25, 12, 22, 11] 
+  
+# Traverse through all array elements 
+for i in range(len(A)): 
+      
+    # Find the minimum element in remaining  
+    # unsorted array 
+    min_idx = i 
+    for j in range(i+1, len(A)): 
+        if A[min_idx] > A[j]: 
+            min_idx = j 
+              
+    # Swap the found minimum element with  
+    # the first element         
+    A[i], A[min_idx] = A[min_idx], A[i] 
+  
+
+# Driver code to test above 
+print ("Sorted array") 
+for i in range(len(A)): 
+    print("%d" %A[i]),  
+`
+                break;
+            case("c#"):
+                code=`     
+// C# program for implementation  
+// of Selection Sort 
+using System; 
+  
+class GFG 
+{  
+    static void sort(int []arr) 
+    { 
+        int n = arr.Length; 
+  
+        // One by one move boundary of unsorted subarray 
+        for (int i = 0; i < n - 1; i++) 
+        { 
+            // Find the minimum element in unsorted array 
+            int min_idx = i; 
+            for (int j = i + 1; j < n; j++) 
+                if (arr[j] < arr[min_idx]) 
+                    min_idx = j; 
+  
+            // Swap the found minimum element with the first 
+            // element 
+            int temp = arr[min_idx]; 
+            arr[min_idx] = arr[i]; 
+            arr[i] = temp; 
+        } 
+    } 
+  
+    // Prints the array 
+    static void printArray(int []arr) 
+    { 
+        int n = arr.Length; 
+        for (int i=0; i<n; ++i) 
+            Console.Write(arr[i]+" "); 
+        Console.WriteLine(); 
+    } 
+  
+    // Driver code  
+    public static void Main() 
+    { 
+        int []arr = {64,25,12,22,11}; 
+        sort(arr); 
+        Console.WriteLine("Sorted array"); 
+        printArray(arr); 
+    } 
+  
+} 
+// This code is contributed by Sam007 
+`
+                break;
+            case("java"):
+                code=`   
+// Java program for implementation of Selection Sort 
+class SelectionSort 
+{ 
+    void sort(int arr[]) 
+    { 
+        int n = arr.length; 
+  
+        // One by one move boundary of unsorted subarray 
+        for (int i = 0; i < n-1; i++) 
+        { 
+            // Find the minimum element in unsorted array 
+            int min_idx = i; 
+            for (int j = i+1; j < n; j++) 
+                if (arr[j] < arr[min_idx]) 
+                    min_idx = j; 
+  
+            // Swap the found minimum element with the first 
+            // element 
+            int temp = arr[min_idx]; 
+            arr[min_idx] = arr[i]; 
+            arr[i] = temp; 
+        } 
+    } 
+  
+    // Prints the array 
+    void printArray(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i=0; i<n; ++i) 
+            System.out.print(arr[i]+" "); 
+        System.out.println(); 
+    } 
+  
+    // Driver code to test above 
+    public static void main(String args[]) 
+    { 
+        SelectionSort ob = new SelectionSort(); 
+        int arr[] = {64,25,12,22,11}; 
+        ob.sort(arr); 
+        System.out.println("Sorted array"); 
+        ob.printArray(arr); 
+    } 
+} 
+/* This code is contributed by Rajat Mishra*/
+`
+                break;
+            case("c++"):
+                code=`
+// C++ program for implementation of selection sort  
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+void swap(int *xp, int *yp)  
+{  
+    int temp = *xp;  
+    *xp = *yp;  
+    *yp = temp;  
+}  
+  
+void selectionSort(int arr[], int n)  
+{  
+    int i, j, min_idx;  
+  
+    // One by one move boundary of unsorted subarray  
+    for (i = 0; i < n-1; i++)  
+    {  
+        // Find the minimum element in unsorted array  
+        min_idx = i;  
+        for (j = i+1; j < n; j++)  
+        if (arr[j] < arr[min_idx])  
+            min_idx = j;  
+  
+        // Swap the found minimum element with the first element  
+        swap(&arr[min_idx], &arr[i]);  
+    }  
+}  
+  
+/* Function to print an array */
+void printArray(int arr[], int size)  
+{  
+    int i;  
+    for (i=0; i < size; i++)  
+        cout << arr[i] << " ";  
+    cout << endl;  
+}  
+  
+// Driver program to test above functions  
+int main()  
+{  
+    int arr[] = {64, 25, 12, 22, 11};  
+    int n = sizeof(arr)/sizeof(arr[0]);  
+    selectionSort(arr, n);  
+    cout << "Sorted array: \n";  
+    printArray(arr, n);  
+    return 0;  
+}  
+  
+// This is code is contributed by rathbhupendra 
+`
+                break;
+            case("swift"):
+                code=`
+func selectionSort(_ array: [Int]) -> [Int] {
+    guard array.count > 1 else { return array }  // 1
+    
+    var a = array                    // 2
+    
+    for x in 0 ..< a.count - 1 {     // 3
+    
+        var lowest = x
+        for y in x + 1 ..< a.count {   // 4
+        if a[y] < a[lowest] {
+            lowest = y
+        }
+        }
+    
+        if x != lowest {               // 5
+        a.swapAt(x, lowest)
+        }
+    }
+    return a
+    }
+
+let list = [ 10, -1, 3, 9, 2, 27, 8, 5, 1, 3, 0, 26 ]
+selectionSort(list)`
+                break;
+        }   
+    }
+    
+    if(props.sort ===""){
         
         switch(props.language){
             case("js"):
@@ -1054,10 +1508,19 @@ println(sortedArray as Array)
                 break;
             case("c#"):
                 code="Bubble sort C# code"
-                    break;
-        }
-        
+                break;
+            case("java"):
+                code="Bubble sort C# code"
+                break;
+            case("c++"):
+                code="Bubble sort C# code"
+                break;
+            case("swift"):
+                code="Bubble sort C# code"
+                break;
+        }   
     }
+
 
     return <div className="code">
             <pre>

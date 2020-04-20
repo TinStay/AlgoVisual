@@ -219,4 +219,112 @@ export const getInsertionSortAnimations = (array) => {
 
 // let sortedArr = insertionSort(items);
 // console.log("Sorted via insertionSort", sortedArr) 
- 
+
+function selectionSort(array, animations){
+  for(let i = 0; i < array.length; i++){
+    let min = i;
+
+    for(let j = i + 1; j < array.length; j++){
+      // animations.push([min, j]);
+      // animations.push([min, j]);
+      // animations.push(null);
+      if(array[min] > array[j]){
+        animations.push([min, j]);
+        animations.push([min, j]);
+        animations.push(null);
+      
+        min = j;
+      }
+    }
+        animations.push([min, i]);
+        animations.push([min, i]);
+        animations.push([i, min, array[i], array[min]]);
+
+      swap(array, i, min)
+    
+  }
+  // return array;
+}
+
+// let sortedArr = selectionSort(items);
+// console.log("Selection sort", sortedArr)
+
+export const getSelectionSortAnimations = array => {
+  let animations = [];
+  if (array.length <= 1) return array;
+  
+  selectionSort(array, animations);
+  
+  return animations;
+}
+
+
+let arr = [-1, -2, 0, 1, 3, 4];
+
+/* to create MAX  array */ 
+let array_length;
+
+function heap_root(array, i, animations) {
+    let left = 2 * i + 1;
+    let right = 2 * i + 2;
+    console.log(left, right)
+    let max = i;
+
+    if (left < array_length && array[left] > array[max]) {
+        max = left;
+    }
+
+    if (right < array_length && array[right] > array[max]){
+        max = right;
+    }
+
+    if (max != i) {
+      animations.push([max, i]);
+      animations.push([max, i]);
+      animations.push([max, i, array[max], array[i]]);
+
+        swap(array, i, max);
+        heap_root(array, max, animations);
+    }
+    return animations
+}
+
+
+function heapSort(array) {
+    let animations = [];
+    array_length = array.length;
+
+    for (let i = Math.floor(array_length / 2); i >= 0; i -= 1) {
+        heap_root(array, i, animations);
+      }
+
+    for (let i = array.length - 1; i > 0; i--) {
+      animations.push([0, i]);
+      animations.push([0, i]);
+      animations.push([0, i, array[0], array[i]]);
+
+      swap(array, 0, i);
+      array_length--;
+      
+      
+      heap_root(array, 0, animations);
+    }
+
+    return animations
+
+}
+
+export const getHeapSortAnimations = array => {
+  
+  if (array.length <= 1) return array;
+  
+  const animations = heapSort(array);
+  
+  return animations;
+}
+
+
+console.log("mid num : ", Math.floor(arr.length / 2))
+heapSort(arr)
+
+git

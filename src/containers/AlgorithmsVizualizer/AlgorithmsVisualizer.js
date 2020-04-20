@@ -16,6 +16,8 @@ function getRandomArbitrary(min, max) {
 const PRIMARY_COLOR = '#6a89cc';
 
 const SECONDARY_COLOR = '#e74c3c';
+let timeouts = [];
+let animationProgress = [];
 
 
 class AlgorithmsVisualizer extends PureComponent{
@@ -25,6 +27,7 @@ class AlgorithmsVisualizer extends PureComponent{
         arrayBars: 50,
         visualizerWidth: 0,
         animationSpeed: 10,
+        stopped: false
     
     }
 
@@ -72,12 +75,12 @@ class AlgorithmsVisualizer extends PureComponent{
    
 
     async mergeSort() {
-
+        
         const animations = algorithms.getMergeSortAnimations(this.state.array);
 
         let i = 0;
         while(i < animations.length) {
-
+        
         const j = i;
         const arrayBars = document.getElementsByClassName('array-bar');
         const isColorChange = i % 3 !== 2;
@@ -89,33 +92,30 @@ class AlgorithmsVisualizer extends PureComponent{
         const barTwoStyle = arrayBars[barTwoIdx].style;
         const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
 
-        setTimeout(() => {
+        timeouts.push(setTimeout(() => {
             barOneStyle.background = color;
             barTwoStyle.background = color;
-        }, i * this.state.animationSpeed);
+            
+        }, i * this.state.animationSpeed));
         } else {
-        setTimeout(() => {
+            timeouts.push(setTimeout(() => {
         // Overwriting the array numbers --- sorting them
             const [barOneIdx, newHeight] = animations[j];
             const barOneStyle = arrayBars[barOneIdx].style;
             barOneStyle.height = `${newHeight}px`;
-        }, i * this.state.animationSpeed);
+        }, i * this.state.animationSpeed));;
         }
-
         i++;
         }
 
         
 
-        // await setTimeout(() =>{
-        //     this.setState({disabled: false});
-        // }, i * this.state.animationSpeed);
       }
 
     quickSort(){
         let array = this.state.array
         let animations = algorithms.getQuicksortAnimations(array)
-        console.log(animations)
+        // console.log(animations)
 
         let i = 0;
         while(i < animations.length) {
@@ -144,17 +144,17 @@ class AlgorithmsVisualizer extends PureComponent{
         
         const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
 
-        setTimeout(() => {
+        timeouts.push(setTimeout(() => {
             barOneStyle.backgroundColor = color;
             barTwoStyle.backgroundColor = color;
             if(i % 3 == 0){
                 barThreeStyle.backgroundColor = 'green';
             }
             
-        }, i * this.state.animationSpeed);
+        }, i * this.state.animationSpeed));
         } 
         if(i % 3 == 2){
-        setTimeout(() => {
+            timeouts.push(setTimeout(() => {
         // Overwriting the array numbers --- sorting them
             const [barOneIdx, barTwoIdx] = animation;
             const barOneValue = animation[2];
@@ -172,7 +172,7 @@ class AlgorithmsVisualizer extends PureComponent{
                 const barThreeStyle = arrayBars[barThreeIdx].style;
                 barThreeStyle.backgroundColor = PRIMARY_COLOR;
             }
-        }, i * this.state.animationSpeed);
+        }, i * this.state.animationSpeed));
         }
 
         i++;
@@ -181,7 +181,6 @@ class AlgorithmsVisualizer extends PureComponent{
       }
 
       async bubbleSort() {
-
         const animations = algorithms.getBubblesortAnimations(this.state.array);
 
         let i = 0;
@@ -199,12 +198,12 @@ class AlgorithmsVisualizer extends PureComponent{
         const barTwoStyle = arrayBars[barTwoIdx].style;
         const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
 
-        setTimeout(() => {
+         timeouts.push(setTimeout(() => {
             barOneStyle.background = color;
             barTwoStyle.background = color;
-        }, i * this.state.animationSpeed);
+        }, i * this.state.animationSpeed));
         } else {
-        setTimeout(() => {
+         timeouts.push(setTimeout(() => {
         // Swapping the elements(overwriting their height)
             const [barOneIdx, barTwoIdx] = animation;
             const barOneValue = animation[2];
@@ -217,7 +216,7 @@ class AlgorithmsVisualizer extends PureComponent{
             const barTwoStyle = arrayBars[barTwoIdx].style;
             barTwoStyle.height = `${barOneValue}px`;
 
-        }, i * this.state.animationSpeed);
+        }, i * this.state.animationSpeed));
         }
 
         i++;
@@ -241,17 +240,17 @@ class AlgorithmsVisualizer extends PureComponent{
         if (isColorChange) {
         // Change color of the elements that are compared
         const [barOneIdx, barTwoIdx] = animations[j];
-        console.log(barOneIdx, barTwoIdx)
+        // console.log(barOneIdx, barTwoIdx)
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
         const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
 
-        setTimeout(() => {
+         timeouts.push(setTimeout(() => {
             barOneStyle.background = color;
             barTwoStyle.background = color;
-        }, i * this.state.animationSpeed);
+        }, i * this.state.animationSpeed));
         } else {
-        setTimeout(() => {
+         timeouts.push(setTimeout(() => {
         // Change height of the smaller element
             const [barOneIdx, height] = animation;
            
@@ -259,17 +258,102 @@ class AlgorithmsVisualizer extends PureComponent{
             barOneStyle.height = `${height}px`;
 
 
-        }, i * this.state.animationSpeed);
+        }, i * this.state.animationSpeed));
         }
 
         i++;
         }
+      }
 
-        
+      selectionSort() {
 
-        // await setTimeout(() =>{
-        //     this.setState({disabled: false});
-        // }, i * this.state.animationSpeed);
+        const animations = algorithms.getSelectionSortAnimations(this.state.array);
+
+        let i = 0;
+        while(i < animations.length) {
+
+        const j = i;
+        const animation = animations[j]
+        const arrayBars = document.getElementsByClassName('array-bar');
+        const isColorChange = i % 3 !== 2;
+
+        if (isColorChange) {
+        // Change color of the elements that are compared
+        const [barOneIdx, barTwoIdx] = animations[j];
+        // console.log(barOneIdx, barTwoIdx)
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+
+         timeouts.push(setTimeout(() => {
+            barOneStyle.background = color;
+            barTwoStyle.background = color;
+        }, i * this.state.animationSpeed));
+        } else {
+        if(animation !== null){
+            // Change height of the smaller element
+             timeouts.push(setTimeout(() => {
+                const [barOneIdx, barTwoIdx] = animation;
+                const barOneValue = animation[2];
+                const barTwoValue = animation[3];
+    
+                            
+                const barOneStyle = arrayBars[barOneIdx].style;
+                barOneStyle.height = `${barTwoValue}px`;
+                
+                const barTwoStyle = arrayBars[barTwoIdx].style;
+                barTwoStyle.height = `${barOneValue}px`;
+        }, i * this.state.animationSpeed));
+
+        }
+        }
+        i++;
+        }
+      }
+        heapSort() {
+
+        const animations = algorithms.getHeapSortAnimations(this.state.array);
+
+        let i = 0;
+        while(i < animations.length) {
+
+        const j = i;
+        const animation = animations[j]
+        const arrayBars = document.getElementsByClassName('array-bar');
+        const isColorChange = i % 3 !== 2;
+
+        if (isColorChange) {
+        // Change color of the elements that are compared
+        const [barOneIdx, barTwoIdx] = animations[j];
+        // console.log(barOneIdx, barTwoIdx)
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+
+         timeouts.push(setTimeout(() => {
+            barOneStyle.background = color;
+            barTwoStyle.background = color;
+        }, i * this.state.animationSpeed));
+        } else {
+        if(animation !== null){
+            // Change height of the smaller element
+             timeouts.push(setTimeout(() => {
+                const [barOneIdx, barTwoIdx] = animation;
+                const barOneValue = animation[2];
+                const barTwoValue = animation[3];
+    
+                            
+                const barOneStyle = arrayBars[barOneIdx].style;
+                barOneStyle.height = `${barTwoValue}px`;
+                
+                const barTwoStyle = arrayBars[barTwoIdx].style;
+                barTwoStyle.height = `${barOneValue}px`;
+        }, i * this.state.animationSpeed));
+
+        }
+        }
+        i++;
+        }
       }
 
       changeArrayNumber = (e) =>{
@@ -284,12 +368,19 @@ class AlgorithmsVisualizer extends PureComponent{
         this.setState({ animationSpeed: e.target.value})
       }
 
+      stopAnimations = () =>{
+        //   this.setState({stopped: true})
+        
+    //    if(this.state.stopped){
+        for (let i=0; i<timeouts.length; i++) {
+            clearTimeout(timeouts[i]);
+          }
+    //    }
+      }
+
 
     render(){
-        
-        
 
-       
         const width = (this.state.visualizerWidth-40)/this.state.arrayBars - 5;
         let arrayVisualization = <p className="blue">Too much elements. Try decreasing the number of elements.</p>
 
@@ -323,14 +414,18 @@ class AlgorithmsVisualizer extends PureComponent{
                         <Slider change={this.changeArrayNumber}/>
                        <div className="row text-center">
                        <button className='new-array col-md-6' onClick={() => this.newArray(this.state.arrayBars)}>Generate new array</button>
+                       <button className='stop-animation'  onClick={() => this.stopAnimations()}>Stop animating</button>
                         <ButtonGroupAnimation className="col-12 col-md-6 " changeTime={this.changeTimeHandler}/>
                        </div>
+                       
                     </div>
                     <div className="col-lg-6">
                         <button className='button'  onClick={() => this.mergeSort()}>Mergesort</button>
                         <button className='button' onClick={() => this.quickSort()}>Quicksort</button>
                         <button className='button' onClick={() => this.bubbleSort()}>Bubble sort</button>
                         <button className='button'  onClick={() => this.insertionSort()}>Insertion sort</button>
+                        <button className='button'  onClick={() => this.selectionSort()}>Selection sort</button>
+                        <button className='button'  onClick={() => this.heapSort()}>Heap sort</button>
                     </div>
                     
                 </div>

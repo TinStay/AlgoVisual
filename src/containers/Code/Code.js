@@ -50,6 +50,9 @@ class CodeSection extends PureComponent{
                             <Tab eventKey="selection" title="Selection sort" >
                                 <AlgoSortInfo sort={this.state.sort}/>
                             </Tab>
+                            <Tab eventKey="heap" title="Heap sort" >
+                                <AlgoSortInfo sort={this.state.sort}/>
+                            </Tab>
                            
                             </Tabs>
                         
@@ -64,9 +67,9 @@ class CodeSection extends PureComponent{
                                 <li className={this.state.sort === 'merge' ? "list-group-item active": 'list-group-item'} ><button className="btn" onClick={() => this.setSort('merge')}>Mergesort</button> </li>
                                 <li className={this.state.sort === 'quick' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('quick')}>Quicksort</button> </li>
                                 <li className={this.state.sort === 'bubble' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('bubble')}>Bubble sort</button> </li>
-                                <li className={this.state.sort === 'asd' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('merge')}>Mergesort</button> </li>
-                                <li className={this.state.sort === 'dw' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('bubble')}>Bubble sort</button> </li>
-                                <li className={this.state.sort === 'quiasdck' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('merge')}>Mergesort</button> </li>
+                                <li className={this.state.sort === 'insertion' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('insertion')}>Insertion sort</button> </li>
+                                <li className={this.state.sort === 'selection' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('selection')}>Selection sort</button> </li>
+                                <li className={this.state.sort === 'heap' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('merge')}>Heap sort</button></li>
                                 
                             </ul>
                         </div> 
@@ -82,4 +85,5 @@ class CodeSection extends PureComponent{
 
 
 export default CodeSection;
+git
 
