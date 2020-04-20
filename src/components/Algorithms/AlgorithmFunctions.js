@@ -324,7 +324,6 @@ export const getHeapSortAnimations = array => {
 }
 
 
-console.log("mid num : ", Math.floor(arr.length / 2))
-heapSort(arr)
+  // console.log("mid num : ", Math.floor(arr.length / 2))
+  // heapSort(arr)
 
-git
