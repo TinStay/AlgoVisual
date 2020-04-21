@@ -22,7 +22,7 @@ class CodeSection extends PureComponent{
     
 
         return (
-            <div  className='code-container '>
+            <div className='code-container' id="code-container">
              <div className=" text-center code-jumbotron">
                 <h1 className='red  letter-spacing'>Code and Explanation</h1>
                 <h4 className=" mt-4">Check out the code behind the sorting algorithms and read more about the logic behind them. </h4>
@@ -57,12 +57,12 @@ class CodeSection extends PureComponent{
                             </Tabs>
                         
                     </div>
-                    <div id="code-container" className="code-section d-lg-flex justify-content-center">
+                    <div  className="code-section d-lg-flex justify-content-center">
                         <div className="languages ">
                             <h1 className="mb-4 text-center">Code</h1>
                             <LanguageTabs sort={this.state.sort}/>
                         </div>
-                        <div className="sorts ">
+                        <div className="sorts">
                             <ul class="list-group">
                                 <li className={this.state.sort === 'merge' ? "list-group-item active": 'list-group-item'} ><button className="btn" onClick={() => this.setSort('merge')}>Mergesort</button> </li>
                                 <li className={this.state.sort === 'quick' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('quick')}>Quicksort</button> </li>
@@ -85,5 +85,7 @@ class CodeSection extends PureComponent{
 
 
 export default CodeSection;
+
+git
 
 

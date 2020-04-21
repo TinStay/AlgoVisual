@@ -1497,26 +1497,398 @@ selectionSort(list)`
         }   
     }
     
-    if(props.sort ===""){
-        
+    if(props.sort ==="heap"){ 
         switch(props.language){
             case("js"):
-                code = `Bubble sort JS code`
+                code = `
+var array_length;
+/* to create MAX  array */  
+function heap_root(input, i) {
+    var left = 2 * i + 1;
+    var right = 2 * i + 2;
+    var max = i;
+
+    if (left < array_length && input[left] > input[max]) {
+        max = left;
+    }
+
+    if (right < array_length && input[right] > input[max])     {
+        max = right;
+    }
+
+    if (max != i) {
+        swap(input, i, max);
+        heap_root(input, max);
+    }
+}
+
+function swap(input, index_A, index_B) {
+    var temp = input[index_A];
+
+    input[index_A] = input[index_B];
+    input[index_B] = temp;
+}
+
+function heapSort(input) {
+    
+    array_length = input.length;
+
+    for (var i = Math.floor(array_length / 2); i >= 0; i -= 1)      {
+        heap_root(input, i);
+    }
+
+    for (i = input.length - 1; i > 0; i--) {
+        swap(input, 0, i);
+        array_length--;
+    
+    
+        heap_root(input, 0);
+    }
+}
+
+var arr = [3, 0, 2, 5, -1, 4, 1];
+heapSort(arr);
+console.log(arr);`
                 break;
             case('python'):
-                code="Bubble sort PYTHON code"
+                code=`         
+# Python program for implementation of heap Sort 
+  
+# To heapify subtree rooted at index i. 
+# n is size of heap 
+def heapify(arr, n, i): 
+    largest = i # Initialize largest as root 
+    l = 2 * i + 1     # left = 2*i + 1 
+    r = 2 * i + 2     # right = 2*i + 2 
+  
+    # See if left child of root exists and is 
+    # greater than root 
+    if l < n and arr[i] < arr[l]: 
+        largest = l 
+  
+    # See if right child of root exists and is 
+    # greater than root 
+    if r < n and arr[largest] < arr[r]: 
+        largest = r 
+  
+    # Change root, if needed 
+    if largest != i: 
+        arr[i],arr[largest] = arr[largest],arr[i] # swap 
+  
+        # Heapify the root. 
+        heapify(arr, n, largest) 
+  
+# The main function to sort an array of given size 
+def heapSort(arr): 
+    n = len(arr) 
+  
+    # Build a maxheap. 
+    for i in range(n/2 - 1, -1, -1): 
+        heapify(arr, n, i) 
+  
+    # One by one extract elements 
+    for i in range(n-1, 0, -1): 
+        arr[i], arr[0] = arr[0], arr[i] # swap 
+        heapify(arr, i, 0) 
+  
+# Driver code to test above 
+arr = [ 12, 11, 13, 5, 6, 7] 
+heapSort(arr) 
+n = len(arr) 
+print ("Sorted array is") 
+for i in range(n): 
+    print ("%d" %arr[i]), 
+# This code is contributed by Mohit Kumra 
+`
                 break;
             case("c#"):
-                code="Bubble sort C# code"
+                code=`
+// C# program for implementation of Heap Sort 
+using System; 
+    
+public class HeapSort 
+{ 
+    public void sort(int[] arr) 
+    { 
+        int n = arr.Length; 
+    
+        // Build heap (rearrange array) 
+        for (int i = n / 2 - 1; i >= 0; i--) 
+            heapify(arr, n, i); 
+    
+        // One by one extract an element from heap 
+        for (int i=n-1; i>0; i--) 
+        { 
+            // Move current root to end 
+            int temp = arr[0]; 
+            arr[0] = arr[i]; 
+            arr[i] = temp; 
+    
+            // call max heapify on the reduced heap 
+            heapify(arr, i, 0); 
+        } 
+    } 
+    
+    // To heapify a subtree rooted with node i which is 
+    // an index in arr[]. n is size of heap 
+    void heapify(int[] arr, int n, int i) 
+    { 
+        int largest = i; // Initialize largest as root 
+        int l = 2*i + 1; // left = 2*i + 1 
+        int r = 2*i + 2; // right = 2*i + 2 
+    
+        // If left child is larger than root 
+        if (l < n && arr[l] > arr[largest]) 
+            largest = l; 
+    
+        // If right child is larger than largest so far 
+        if (r < n && arr[r] > arr[largest]) 
+            largest = r; 
+    
+        // If largest is not root 
+        if (largest != i) 
+        { 
+            int swap = arr[i]; 
+            arr[i] = arr[largest]; 
+            arr[largest] = swap; 
+    
+            // Recursively heapify the affected sub-tree 
+            heapify(arr, n, largest); 
+        } 
+    } 
+    
+    /* A utility function to print array of size n */
+    static void printArray(int[] arr) 
+    { 
+        int n = arr.Length; 
+        for (int i=0; i<n; ++i) 
+            Console.Write(arr[i]+" "); 
+        Console.Read(); 
+    } 
+    
+    // Driver program 
+    public static void Main() 
+    { 
+        int[] arr = {12, 11, 13, 5, 6, 7}; 
+        int n = arr.Length; 
+    
+        HeapSort ob = new HeapSort(); 
+        ob.sort(arr); 
+    
+        Console.WriteLine("Sorted array is"); 
+        printArray(arr); 
+    } 
+} 
+    
+// This code is contributed  
+// by Akanksha Rai(Abby_akku) 
+`
                 break;
             case("java"):
-                code="Bubble sort C# code"
+                code=`          
+// Java program for implementation of Heap Sort 
+public class HeapSort 
+{ 
+    public void sort(int arr[]) 
+    { 
+        int n = arr.length; 
+  
+        // Build heap (rearrange array) 
+        for (int i = n / 2 - 1; i >= 0; i--) 
+            heapify(arr, n, i); 
+  
+        // One by one extract an element from heap 
+        for (int i=n-1; i>0; i--) 
+        { 
+            // Move current root to end 
+            int temp = arr[0]; 
+            arr[0] = arr[i]; 
+            arr[i] = temp; 
+  
+            // call max heapify on the reduced heap 
+            heapify(arr, i, 0); 
+        } 
+    } 
+  
+    // To heapify a subtree rooted with node i which is 
+    // an index in arr[]. n is size of heap 
+    void heapify(int arr[], int n, int i) 
+    { 
+        int largest = i; // Initialize largest as root 
+        int l = 2*i + 1; // left = 2*i + 1 
+        int r = 2*i + 2; // right = 2*i + 2 
+  
+        // If left child is larger than root 
+        if (l < n && arr[l] > arr[largest]) 
+            largest = l; 
+  
+        // If right child is larger than largest so far 
+        if (r < n && arr[r] > arr[largest]) 
+            largest = r; 
+  
+        // If largest is not root 
+        if (largest != i) 
+        { 
+            int swap = arr[i]; 
+            arr[i] = arr[largest]; 
+            arr[largest] = swap; 
+  
+            // Recursively heapify the affected sub-tree 
+            heapify(arr, n, largest); 
+        } 
+    } 
+  
+    /* A utility function to print array of size n */
+    static void printArray(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i=0; i<n; ++i) 
+            System.out.print(arr[i]+" "); 
+        System.out.println(); 
+    } 
+  
+    // Driver program 
+    public static void main(String args[]) 
+    { 
+        int arr[] = {12, 11, 13, 5, 6, 7}; 
+        int n = arr.length; 
+  
+        HeapSort ob = new HeapSort(); 
+        ob.sort(arr); 
+  
+        System.out.println("Sorted array is"); 
+        printArray(arr); 
+    } 
+} 
+`
                 break;
             case("c++"):
-                code="Bubble sort C# code"
+                code=`           
+// C++ program for implementation of Heap Sort 
+#include <iostream> 
+  
+using namespace std; 
+  
+// To heapify a subtree rooted with node i which is 
+// an index in arr[]. n is size of heap 
+void heapify(int arr[], int n, int i) 
+{ 
+    int largest = i; // Initialize largest as root 
+    int l = 2*i + 1; // left = 2*i + 1 
+    int r = 2*i + 2; // right = 2*i + 2 
+  
+    // If left child is larger than root 
+    if (l < n && arr[l] > arr[largest]) 
+        largest = l; 
+  
+    // If right child is larger than largest so far 
+    if (r < n && arr[r] > arr[largest]) 
+        largest = r; 
+  
+    // If largest is not root 
+    if (largest != i) 
+    { 
+        swap(arr[i], arr[largest]); 
+  
+        // Recursively heapify the affected sub-tree 
+        heapify(arr, n, largest); 
+    } 
+} 
+  
+// main function to do heap sort 
+void heapSort(int arr[], int n) 
+{ 
+    // Build heap (rearrange array) 
+    for (int i = n / 2 - 1; i >= 0; i--) 
+        heapify(arr, n, i); 
+  
+    // One by one extract an element from heap 
+    for (int i=n-1; i>0; i--) 
+    { 
+        // Move current root to end 
+        swap(arr[0], arr[i]); 
+  
+        // call max heapify on the reduced heap 
+        heapify(arr, i, 0); 
+    } 
+} 
+  
+/* A utility function to print array of size n */
+void printArray(int arr[], int n) 
+{ 
+    for (int i=0; i<n; ++i) 
+        cout << arr[i] << " "; 
+    cout << "\n"; 
+} 
+  
+// Driver program 
+int main() 
+{ 
+    int arr[] = {12, 11, 13, 5, 6, 7}; 
+    int n = sizeof(arr)/sizeof(arr[0]); 
+  
+    heapSort(arr, n); 
+  
+    cout << "Sorted array is \n"; 
+    printArray(arr, n); 
+} 
+`
                 break;
             case("swift"):
-                code="Bubble sort C# code"
+                code=`
+class SortingAlgorithms {
+    private init() {}
+    
+    public static func heapSort<DataType: Comparable>(_ array: inout [DataType]) {
+        if array.count < 2 { return }
+        buildHeap(&array)
+        shrinkHeap(&array)
+    }
+    
+    private static func buildHeap<DataType: Comparable>(_ array: inout [DataType]) {
+        for index in 1..<array.count {
+        var child = index
+        var parent = child.parent
+        while child > 0 && array[child] > array[parent] {
+            swap(child, with: parent, in: &array)
+            child = parent
+            parent = child.parent
+        }
+        }
+    }
+    
+    private static func shrinkHeap<DataType: Comparable>(_ array: inout [DataType]) {
+        for index in stride(from: array.count - 1, to: 0, by: -1) {
+        swap(0, with: index, in: &array)
+        var parent = 0
+        var leftChild = parent.leftChild
+        var rightChild = parent.rightChild
+        while parent < index {
+            var maxChild = -1
+            if leftChild < index {
+            maxChild = leftChild
+            } else {
+            break
+            }
+            if rightChild < index && array[rightChild] > array[maxChild] {
+            maxChild = rightChild
+            }
+            guard array[maxChild] > array[parent] else { break }
+            
+            swap(parent, with: maxChild, in: &array)
+            parent = maxChild
+            leftChild = parent.leftChild
+            rightChild = parent.rightChild
+        }
+        }
+    }
+    
+    private static func swap<DataType: Comparable>(_ firstIndex: Int, with secondIndex: Int, in array: inout [DataType]) {
+        let temp = array[firstIndex]
+        array[firstIndex] = array[secondIndex]
+        array[secondIndex] = temp
+    }
+}`
                 break;
         }   
     }

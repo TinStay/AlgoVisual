@@ -87,18 +87,25 @@ export const selectionText = () =>{
 }
    
 
+export const heapText = () =>{
+   return(
+      <div>
+      <p>A Heap is a binary tree structure that is complete and partially ordered. What this means in normal people language is 
+      that it always inserts new data nodes as far to the left in the highest level of nodes as possible. It also means that there is an order to the 
+      elements in some sense, even though it is not sorted.</p>
+      <p>In computer science, heapsort (invented by J. W. J. Williams in 1964) is a comparison-based sorting algorithm. Heapsort 
+can be thought of as an improved selection sort: like that algorithm, it divides its input into a sorted and an unsorted region, and it interactively 
+shrinks the unsorted region by extracting the largest element and moving that to the sorted region. Steps that take place in the sorting:</p>
+         <ol className="info-paragraph">
+            <li> Build a max heap from the input data.</li>
+            <li> At this point, the largest item is stored at the root of the heap. Replace it with the last item of the heap followed by reducing the size of heap by 1. 
+               Finally, heapify the root of tree.</li>
+            <li> Repeat above steps while size of heap is greater than 1.</li>
+         </ol>
+         <p className="info-paragraph">Although somewhat slower in practice on 
+most machines than a well-implemented quicksort, it has the advantage of a more favorable worst-case O(n log n) runtime. Heapsort is an in-place algorithm, but it is not a stable sort.</p>
+      </div>
+   )
+}
 
-
-// [`
-// The idea behind selection sort is that you loop through the input array linearly, selecting the first smallest element, and then swap it to the first position. Then you loop through the array again using a linear 
-// scan and get the second smallest element, swap it to the second position, and so on and so forth until your array is completely sorted.`,
-// `
-// Assume the first item is the smallest value.
-
-// `,
-// `Compare this item to the second item.
-// If the second item is smaller than the first, set the second item as the new minimum.
-// Continue until the end of the data set is reached.
-// If the minimum value is not the item you started with, swap them.`,
-// ``]
 

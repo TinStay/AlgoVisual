@@ -17,7 +17,6 @@ const PRIMARY_COLOR = '#6a89cc';
 
 const SECONDARY_COLOR = '#e74c3c';
 let timeouts = [];
-let animationProgress = [];
 
 
 class AlgorithmsVisualizer extends PureComponent{
@@ -27,7 +26,7 @@ class AlgorithmsVisualizer extends PureComponent{
         arrayBars: 50,
         visualizerWidth: 0,
         animationSpeed: 10,
-        stopped: false
+        disabled: false,
     
     }
 
@@ -75,7 +74,6 @@ class AlgorithmsVisualizer extends PureComponent{
    
 
     async mergeSort() {
-        
         const animations = algorithms.getMergeSortAnimations(this.state.array);
 
         let i = 0;
@@ -92,13 +90,13 @@ class AlgorithmsVisualizer extends PureComponent{
         const barTwoStyle = arrayBars[barTwoIdx].style;
         const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
 
-        timeouts.push(setTimeout(() => {
+        await timeouts.push(setTimeout(() => {
             barOneStyle.background = color;
             barTwoStyle.background = color;
             
         }, i * this.state.animationSpeed));
         } else {
-            timeouts.push(setTimeout(() => {
+            await timeouts.push(setTimeout(() => {
         // Overwriting the array numbers --- sorting them
             const [barOneIdx, newHeight] = animations[j];
             const barOneStyle = arrayBars[barOneIdx].style;
@@ -107,6 +105,8 @@ class AlgorithmsVisualizer extends PureComponent{
         }
         i++;
         }
+        // console.log('timeouts', timeouts)
+        // await this.stopAnimations();
 
         
 
@@ -368,14 +368,23 @@ class AlgorithmsVisualizer extends PureComponent{
         this.setState({ animationSpeed: e.target.value})
       }
 
-      stopAnimations = () =>{
-        //   this.setState({stopped: true})
-        
-    //    if(this.state.stopped){
+      stopAnimations = () =>{     
         for (let i=0; i<timeouts.length; i++) {
             clearTimeout(timeouts[i]);
+            
           }
-    //    }
+        timeouts = [];
+
+        const arrayBars = document.getElementsByClassName('array-bar');
+          for(let i = 0; i <= arrayBars.length -1 ; i++){
+              let styleBar = arrayBars[i].style
+              styleBar.background = PRIMARY_COLOR;
+          }
+        // arrayBars.map( bar => {
+        //     bar.style.background = PRIMARY_COLOR;
+        // })
+        
+
       }
 
 
@@ -397,9 +406,9 @@ class AlgorithmsVisualizer extends PureComponent{
 
 
         return (
-            <div id="visualizer-container" className='visualizer-container text-center'>
+            <div  className='visualizer-container text-center'>
                 
-             <div className="mt-4">
+             <div className=" visualizer-jumbo" id="visualizer-container">
                 <h1 className='yellow mt-4 letter-spacing'>Visualizer</h1>
                 <h4 className="white mt-4">Visualize how different sorting algorithms work under the hood. </h4>
              </div>
@@ -413,14 +422,14 @@ class AlgorithmsVisualizer extends PureComponent{
                     <div className="col-lg-6 ">
                         <Slider change={this.changeArrayNumber}/>
                        <div className="row text-center">
-                       <button className='new-array col-md-6' onClick={() => this.newArray(this.state.arrayBars)}>Generate new array</button>
+                       <button className='new-array col-md-6' onClick={() => this.newArray(this.state.arrayBars)}>Generate new list</button>
                        <button className='stop-animation'  onClick={() => this.stopAnimations()}>Stop animating</button>
                         <ButtonGroupAnimation className="col-12 col-md-6 " changeTime={this.changeTimeHandler}/>
                        </div>
                        
                     </div>
                     <div className="col-lg-6">
-                        <button className='button'  onClick={() => this.mergeSort()}>Mergesort</button>
+                        <button className='button' disabled={this.state.disabled} onClick={() => this.mergeSort()}>Mergesort</button>
                         <button className='button' onClick={() => this.quickSort()}>Quicksort</button>
                         <button className='button' onClick={() => this.bubbleSort()}>Bubble sort</button>
                         <button className='button'  onClick={() => this.insertionSort()}>Insertion sort</button>
@@ -438,4 +447,6 @@ class AlgorithmsVisualizer extends PureComponent{
 
 
 export default AlgorithmsVisualizer;
+
+git
 

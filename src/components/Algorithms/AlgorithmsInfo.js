@@ -5,6 +5,7 @@ import quicksortImg from '../../assets/quicksortImg2.png';
 import bubblesortImg from '../../assets/bubblesortImg.png';
 import insertionImg from '../../assets/insertionImg.png';
 import selectionImg from '../../assets/selectionImg.png';
+import heapImg from '../../assets/heapImg.jpg';
 
 export const AlgoSortInfo = (props) =>{
 
@@ -88,10 +89,10 @@ export const AlgoSortInfo = (props) =>{
                     {/* {sortText.selectionText.map( p =>{
                         return  <p className="info-paragraph">{p}</p>
                     })} */}
-                   <sortText.selectionText />
+                   <sortText.heapText />
                 </div>
                 <div className="text-center col-md-6 ">
-                    <img className="normalImg" src={selectionImg} alt="mergeSortImg"/>
+                    <img className="normalImg" src={heapImg} alt="mergeSortImg"/>
                 </div>
                 </div> );
             break;
