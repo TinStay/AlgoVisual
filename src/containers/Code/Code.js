@@ -86,6 +86,5 @@ class CodeSection extends PureComponent{
 
 export default CodeSection;
 
-git
 
 
