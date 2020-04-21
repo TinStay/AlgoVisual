@@ -448,5 +448,4 @@ class AlgorithmsVisualizer extends PureComponent{
 
 export default AlgorithmsVisualizer;
 
-git
 
