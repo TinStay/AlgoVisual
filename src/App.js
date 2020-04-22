@@ -28,7 +28,7 @@ function App() {
       <AlgorithmsVisualizer />
       <CodeSection />
      <div className="main-content">
-      <a href="#navbar" className=" scroll-to-top"><span>&#x02C4;</span></a>
+      <a href="#home" className=" scroll-to-top"><span>&#x02C4;</span></a>
      <TimeComplexity />
      <Footer />
      </div>

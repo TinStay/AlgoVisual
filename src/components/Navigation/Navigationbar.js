@@ -7,7 +7,7 @@ const Navigationbar = (props) =>{
 
     
     return(
-        <div  className="navigationbar" id="navbar">
+        <div  className="navigationbar" id="home">
             <div href="/" className='cirle'>
                 <img src={Logo} alt="logo" className="logo" />
             </div>
