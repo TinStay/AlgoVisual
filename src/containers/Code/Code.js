@@ -1,4 +1,5 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent,  } from 'react';
+
 import LanguageTabs from '../../components/Code/Languages/LanguageTabs';
 import { AlgoSortInfo } from '../../components/Algorithms/AlgorithmsInfo';
 
@@ -8,21 +9,28 @@ import {Tabs, Tab} from 'react-bootstrap';
 
 class CodeSection extends PureComponent{
     state={
-        sort: 'merge'
+        sort: 'merge',
+        theposition: 0
     
     }
 
-    setSort = (sort) =>{
+    
+
+    setSort = (sort, e) =>{
+        // console.log(e)
+        e.preventDefault();
+      
         this.setState({sort: sort})
+        
         
     }
 
     render(){
-        console.log(this.state.sort)
+        // console.log(this.state.sort)
     
 
         return (
-            <div className='code-container' id="code-container">
+            <div id="code-container" className='code-container'>
              <div className=" text-center code-jumbotron">
                 <h1 className='red  letter-spacing'>Code and Explanation</h1>
                 <h4 className=" mt-4">Check out the code behind the sorting algorithms and read more about the logic behind them. </h4>
@@ -33,7 +41,7 @@ class CodeSection extends PureComponent{
                             <Tabs
                             id="controlled-tab-example"
                             activeKey={this.state.sort}
-                            onSelect={(sort) => this.setSort(sort)}
+                            onSelect={(sort, e) => this.setSort(sort, e)}
                             >
                             <Tab eventKey="merge" title="Merge sort">
                                 <AlgoSortInfo sort={this.state.sort}/>
@@ -64,12 +72,12 @@ class CodeSection extends PureComponent{
                         </div>
                         <div className="sorts">
                             <ul class="list-group">
-                                <li className={this.state.sort === 'merge' ? "list-group-item active": 'list-group-item'} ><button className="btn" onClick={() => this.setSort('merge')}>Mergesort</button> </li>
-                                <li className={this.state.sort === 'quick' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('quick')}>Quicksort</button> </li>
-                                <li className={this.state.sort === 'bubble' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('bubble')}>Bubble sort</button> </li>
-                                <li className={this.state.sort === 'insertion' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('insertion')}>Insertion sort</button> </li>
-                                <li className={this.state.sort === 'selection' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('selection')}>Selection sort</button> </li>
-                                <li className={this.state.sort === 'heap' ? "list-group-item active": 'list-group-item'}><button className="btn" onClick={() => this.setSort('merge')}>Heap sort</button></li>
+                                <li className={this.state.sort === 'merge' ? "list-group-item active": 'list-group-item'} ><a className="btn" onClick={(e) => this.setSort('merge',e)}>Mergesort</a> </li>
+                                <li className={this.state.sort === 'quick' ? "list-group-item active": 'list-group-item'}><a className="btn" onClick={(e) => this.setSort('quick',e)}>Quicksort</a> </li>
+                                <li className={this.state.sort === 'bubble' ? "list-group-item active": 'list-group-item'}><a className="btn" onClick={(e) => this.setSort('bubble',e)}>Bubble sort</a> </li>
+                                <li className={this.state.sort === 'insertion' ? "list-group-item active": 'list-group-item'}><a className="btn" onClick={(e) => this.setSort('insertion',e)}>Insertion sort</a> </li>
+                                <li className={this.state.sort === 'selection' ? "list-group-item active": 'list-group-item'}><a className="btn" onClick={(e) => this.setSort('selection',e)}>Selection sort</a> </li>
+                                <li className={this.state.sort === 'heap' ? "list-group-item active": 'list-group-item'}><a className="btn" onClick={(e) => this.setSort('heap',e)}>Heap sort</a></li>
                                 
                             </ul>
                         </div> 

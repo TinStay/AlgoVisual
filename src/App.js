@@ -15,6 +15,7 @@ import Footer from './components/Footer/Footer';
 function App() {
 
   const [darkMode, setDarkMode] = useState(false)
+  
 
   return (
     <div className={darkMode ? "dark-mode": "light-mode"}>
@@ -23,11 +24,11 @@ function App() {
       toggleDarkMode={() => setDarkMode(prevMode => !prevMode)}/>
       
       <Jumbotron />
+      
       <AlgorithmsVisualizer />
-     <div className="main-content">
+      <CodeSection />
+     <div className="main-content m-none">
       <a href="#navbar" className=" scroll-to-top"><span>&#x02C4;</span></a>
-     
-     <CodeSection />
      <TimeComplexity />
      <Footer />
      </div>

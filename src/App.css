@@ -372,7 +372,7 @@ html {
     white-space: pre-wrap; }
 
 .timecomplexity-container {
-  margin: 150px auto 50px auto;
+  margin: 50px auto 50px auto;
   padding: 30px 0;
   background: #76b852;
   background: var(--complexity-bgc-chrome);
