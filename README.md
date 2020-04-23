@@ -1,7 +1,7 @@
 ### AlgoVisual
 
 ### Description
-AlgoVisual is a single-page application for sorting algorithms which consists of 3 sections- visualizer, code and time and space complexity section. 
+AlgoVisual is a single-page application for sorting algorithms which has 3 main sections- visualizer, code and time and space complexity section. 
 
 * The visualizer shows how sorting algorithms divide and sort a list. Users can choose between six different algorithms as well as the number of elements to be sorted and the speed of the animation.
 * In the code and explanation section there is a description of every algorithm and code snippets for implementing it in six different programming languages - JavaScript, Python, C#,  C++, Java, Swift.
