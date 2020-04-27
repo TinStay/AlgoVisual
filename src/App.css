@@ -275,7 +275,7 @@ html {
         padding: 10px; } }
 
 .code-container {
-  margin: 0 auto;
+  margin: 30px auto 0 auto;
   padding-top: 5px; }
   .code-container .code-jumbotron {
     width: 80%;
