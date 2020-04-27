@@ -313,7 +313,8 @@ html {
             margin: auto 30px; } }
         .code-container .code-section-main .code-section .sorts .list-group-item {
           background-color: var(--bg-color);
-          border: 1px solid #2980b9; }
+          border: 1px solid #2980b9;
+          cursor: pointer; }
           .code-container .code-section-main .code-section .sorts .list-group-item .btn {
             color: var(--font-color); }
             .code-container .code-section-main .code-section .sorts .list-group-item .btn::-moz-focus-inner {

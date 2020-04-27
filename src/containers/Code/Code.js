@@ -72,12 +72,12 @@ class CodeSection extends PureComponent{
                         </div>
                         <div className="sorts">
                             <ul class="list-group">
-                                <li className={this.state.sort === 'merge' ? "list-group-item active": 'list-group-item'} ><a className="btn" onClick={(e) => this.setSort('merge',e)}>Mergesort</a> </li>
-                                <li className={this.state.sort === 'quick' ? "list-group-item active": 'list-group-item'}><a className="btn" onClick={(e) => this.setSort('quick',e)}>Quicksort</a> </li>
-                                <li className={this.state.sort === 'bubble' ? "list-group-item active": 'list-group-item'}><a className="btn" onClick={(e) => this.setSort('bubble',e)}>Bubble sort</a> </li>
-                                <li className={this.state.sort === 'insertion' ? "list-group-item active": 'list-group-item'}><a className="btn" onClick={(e) => this.setSort('insertion',e)}>Insertion sort</a> </li>
-                                <li className={this.state.sort === 'selection' ? "list-group-item active": 'list-group-item'}><a className="btn" onClick={(e) => this.setSort('selection',e)}>Selection sort</a> </li>
-                                <li className={this.state.sort === 'heap' ? "list-group-item active": 'list-group-item'}><a className="btn" onClick={(e) => this.setSort('heap',e)}>Heap sort</a></li>
+                                <li className={this.state.sort === 'merge' ? "list-group-item active": 'list-group-item'} onClick={(e) => this.setSort('merge',e)}><a className="btn" >Mergesort</a> </li>
+                                <li className={this.state.sort === 'quick' ? "list-group-item active": 'list-group-item'} onClick={(e) => this.setSort('quick',e)}><a className="btn" >Quicksort</a> </li>
+                                <li className={this.state.sort === 'bubble' ? "list-group-item active": 'list-group-item'} onClick={(e) => this.setSort('bubble',e)}><a className="btn" >Bubble sort</a> </li>
+                                <li className={this.state.sort === 'insertion' ? "list-group-item active": 'list-group-item'} onClick={(e) => this.setSort('insertion',e)}><a className="btn" >Insertion sort</a> </li>
+                                <li className={this.state.sort === 'selection' ? "list-group-item active": 'list-group-item'} onClick={(e) => this.setSort('selection',e)}><a className="btn" >Selection sort</a> </li>
+                                <li className={this.state.sort === 'heap' ? "list-group-item active": 'list-group-item'} onClick={(e) => this.setSort('heap',e)}><a className="btn" >Heap sort</a></li>
                                 
                             </ul>
                         </div> 
