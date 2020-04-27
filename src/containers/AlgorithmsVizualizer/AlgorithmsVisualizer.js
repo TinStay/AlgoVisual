@@ -424,7 +424,8 @@ class AlgorithmsVisualizer extends PureComponent{
                        <div className="row text-center">
                        <button className='new-array col-md-6' onClick={() => this.newArray(this.state.arrayBars)}>Generate new list</button>
                        <button className='stop-animation'  onClick={() => this.stopAnimations()}>Stop animating</button>
-                        <ButtonGroupAnimation className="col-12 col-md-6 " changeTime={this.changeTimeHandler}/>
+                        <ButtonGroupAnimation className="col-12 col-md-6 " changeTime={this.changeTimeHandler} animationSpeed={this.state.animationSpeed}/>
+                      
                        </div>
                        
                     </div>
@@ -447,5 +448,3 @@ class AlgorithmsVisualizer extends PureComponent{
 
 
 export default AlgorithmsVisualizer;
-
-
