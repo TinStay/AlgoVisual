@@ -1,6 +1,6 @@
 import React from 'react';
 import * as sortText from './algoText'
-import mergeSortImg from '../../assets/mergesortImg.png';
+import mergeSortImg from '../../assets/mergeSortImg.png';
 import quicksortImg from '../../assets/quicksortImg2.png';
 import bubblesortImg from '../../assets/bubblesortImg.png';
 import insertionImg from '../../assets/insertionImg.png';
@@ -20,7 +20,7 @@ export const AlgoSortInfo = (props) =>{
                     <sortText.mergeText />
                 </div>
                 <div className="col-md-6 text-center">
-                    <img className="normalImg" src={mergeSortImg} alt="mergeSortImg"/>
+                    <img className="normalImg" src={mergeSortImg} alt="merge sort  image"/>
                 </div>
             </div> );
             break;
@@ -35,7 +35,7 @@ export const AlgoSortInfo = (props) =>{
                    
                 </div>
                 <div className="text-center col-md-6 ">
-                    <img className="tallImg" src={quicksortImg} alt="quicksortImg"/>
+                    <img className="tallImg" src={quicksortImg} alt="quicksort  image "/>
                 </div>
                 </div>);
             break;
@@ -50,7 +50,7 @@ export const AlgoSortInfo = (props) =>{
                    
                 </div>
                 <div className="text-center col-md-6 ">
-                    <img className="tallImg" src={bubblesortImg} alt="bubblesortImg"/>
+                    <img className="tallImg" src={bubblesortImg} alt="bubblesort image "/>
                 </div>
                 </div> );
             break;
@@ -65,7 +65,7 @@ export const AlgoSortInfo = (props) =>{
                    
                 </div>
                 <div className="text-center col-md-6 ">
-                    <img className="tallImg" src={insertionImg} alt="mergeSortImg"/>
+                    <img className="tallImg" src={insertionImg} alt="insertion sort image"/>
                 </div>
                 </div> );
             break;
@@ -79,7 +79,7 @@ export const AlgoSortInfo = (props) =>{
                    <sortText.selectionText />
                 </div>
                 <div className="text-center col-md-6 ">
-                    <img className="normalImg" src={selectionImg} alt="mergeSortImg"/>
+                    <img className="normalImg" src={selectionImg} alt="selection sort image"/>
                 </div>
                 </div> );
             break;
@@ -92,7 +92,7 @@ export const AlgoSortInfo = (props) =>{
                    <sortText.heapText />
                 </div>
                 <div className="text-center col-md-6 ">
-                    <img className="normalImg" src={heapImg} alt="mergeSortImg"/>
+                    <img className="normalImg" src={heapImg} alt="heap sort image"/>
                 </div>
                 </div> );
             break;
