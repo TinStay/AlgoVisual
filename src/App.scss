@@ -180,9 +180,10 @@ html {
     text-align: center;
     background-color: var(--bg-color);
     transition: all 0.6s ease-out;
+    
 
     .heading{
-        font-size: 4em;
+        font-size: 9em;
         margin: 30px 0;
     }
 
@@ -193,34 +194,37 @@ html {
     }
 }
 
-.sections{
-    // color: $light-text-color;
+.jumbotron-cards{
 
-    .heading2{
-        width: 60%;
-        margin: 20px auto;
-        text-align: center;
-        border-bottom: 3px solid #1abc9c;
+    // .heading2{
+    //     width: 60%;
+    //     margin: 20px auto;
+    //     text-align: center;
+    //     border-bottom: 3px solid #1abc9c;
         
-    }
+    // }
 
-    .section{
+    .jumbotron-card{
         text-align: center;
         margin: 0 auto 40px auto;
-
+    
         .h1{
             font-size: 3rem;
+            
         }
-
+    
         p{
-            font-size: 1.2rem;
+            font-size: 1.9rem;
             font-family: "Roboto";
             letter-spacing: 1px;
             line-height: 1.7rem;
             margin: 10px 0;
+            background-color: #2ecc70ee;
         }
-
+    
         .btn{
+            position: absolute;
+            top: 0;
             background-color: #2ecc703a;
             font-size: 20px;    
             margin: 10px;
@@ -233,9 +237,9 @@ html {
             }
         }
         
-
+    
         .section-image{
-            // width: 200px;
+            width: 200px;
             height: 200px;
             margin: 20px 0;
             padding: 13px;
@@ -243,8 +247,10 @@ html {
             border-radius: 5px;
         }
     }
-    
+
 }
+
+
 
 .visualizer-container{
     
