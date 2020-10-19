@@ -9,7 +9,7 @@ const Section = (props) =>{
 
     
     return(
-        <div className="sections row mx-4">
+        <div className="jumbotron-cards row mx-4">
                     <div className="col-xl-4 col-md-6 ">
                         <InfoSection 
                         heading="Visualizer"

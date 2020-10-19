@@ -175,7 +175,7 @@ html {
 
 .jumbotron{
 
-    margin: 35px auto 40px auto;
+    margin: 35px auto 20px auto;
     color: var(--font-color);
     text-align: center;
     background-color: var(--bg-color);
@@ -183,7 +183,7 @@ html {
     
 
     .heading{
-        font-size: 9em;
+        font-size: 4em;
         margin: 30px 0;
     }
 
@@ -209,22 +209,21 @@ html {
         margin: 0 auto 40px auto;
     
         .h1{
-            font-size: 3rem;
-            
+            font-size: 3rem;      
         }
     
         p{
-            font-size: 1.9rem;
+            font-size: 1.2rem;
             font-family: "Roboto";
             letter-spacing: 1px;
             line-height: 1.7rem;
             margin: 10px 0;
-            background-color: #2ecc70ee;
+            // background-color: #2ecc70ee;
         }
     
         .btn{
-            position: absolute;
-            top: 0;
+            // position: absolute;
+            // bottom: 0;
             background-color: #2ecc703a;
             font-size: 20px;    
             margin: 10px;
@@ -241,7 +240,7 @@ html {
         .section-image{
             width: 200px;
             height: 200px;
-            margin: 20px 0;
+            margin-bottom: 20px;
             padding: 13px;
             background-color: #ecf0f1;
             border-radius: 5px;

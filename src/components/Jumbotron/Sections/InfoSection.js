@@ -4,7 +4,7 @@ const InfoSection = (props) =>{
 
     
     return(
-        <div className="section ">
+        <div className="section jumbotron-card">
             <h1 className={props.heading =="Visualizer" ? "yellow" : 
             props.heading =="Code" ? "red": "blue"}>{props.heading}</h1>
 
