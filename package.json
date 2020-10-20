@@ -16,7 +16,7 @@
     "react-bootstrap": "^1.0.0",
     "react-bootstrap-slider": "^2.2.3",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "react-switch": "^5.0.1"
   },
   "scripts": {
