@@ -1,4 +1,4 @@
-### AlgoVisual
+# AlgoVisual
 
 ### Description
 AlgoVisual is a single-page application for sorting algorithms which has 3 main sections- visualizer, code and time and space complexity section. 
